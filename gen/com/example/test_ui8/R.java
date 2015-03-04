@@ -271,6 +271,7 @@ public final class R {
         public static final int na=0x7f070061;
         public static final int no=0x7f070079;
         public static final int no_number=0x7f070023;
+        public static final int not_available=0x7f07007f;
         public static final int number1=0x7f070050;
         public static final int number2=0x7f070051;
         public static final int number3=0x7f070052;
@@ -322,6 +323,7 @@ public final class R {
         public static final int status=0x7f070005;
         public static final int status_charge=0x7f07004c;
         public static final int status_log=0x7f07000b;
+        public static final int status_report_sent=0x7f070080;
         public static final int status_reports=0x7f070056;
         public static final int tilt=0x7f070049;
         public static final int tilt_threshold=0x7f070045;

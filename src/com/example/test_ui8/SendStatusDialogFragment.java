@@ -20,45 +20,42 @@ public class SendStatusDialogFragment extends DialogFragment implements
 
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
-		LayoutInflater inflater = getActivity().getLayoutInflater();
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-				.setView(inflater.inflate(R.layout.status_report_dialog, null))
-				.setTitle(R.string.send_status_report)
-				.setNegativeButton(R.string.cancel,
-						new DialogInterface.OnClickListener() {
-							public void onClick(DialogInterface dialog, int id) {
-
-							}
-						});
-
-		Dialog dialog = builder.create();
 
 		String[] report_messages = new String[10];
-		ListView messageListView;
-		int n = 0;
 		int profile = MainActivity.PROFILE_STATUS;
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(getActivity());
 
 		for (int i = 0; i < 10; i++) {
-
 			String message = settings.getString("P" + profile + "StatusName"
-					+ i, "not_found");
-			if (!message.equals("not_found")) {
-				report_messages[n] = message;
-				n++;
-			}
+					+ i, "");
+			report_messages[i] = message;
 		}
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_1, report_messages);
+		LayoutInflater inflater = getActivity().getLayoutInflater();
+		View view = inflater.inflate(R.layout.status_report_dialog, null);
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
+				.setView(view)
+				.setTitle(R.string.send_status_report)
+				.setItems(report_messages,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int item) {
+								// Do something with the selection
+								Toast.makeText(getActivity(),
+										R.string.status_report_sent,
+										Toast.LENGTH_SHORT).show();
+								
+							}
+						})
+				.setNegativeButton(R.string.cancel,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog, int id) {
+								// do something on cancel button click 
+							}
+						});
 
-		messageListView = (ListView) dialog.findViewById(R.id.status_reports);
-		messageListView.setAdapter(adapter);
-		messageListView.setOnItemClickListener(this);
-
-		return dialog;
+		AlertDialog status_report_dialog = builder.create();
+		return status_report_dialog;
 	}
 
 	@Override

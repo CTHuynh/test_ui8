@@ -33,9 +33,6 @@ public class MainActivity extends Activity {
 				.getDefaultSharedPreferences(this);
 		String securityLevel = settings.getString("SecurityLevel", "3");
 		SECURITY_LEVEL = Integer.valueOf(securityLevel);
-
-		Toast.makeText(this, "Security_Level:  " + SECURITY_LEVEL,
-				Toast.LENGTH_SHORT).show();
 		
 		Intent exitIntent = new Intent(this, MainActivity.class).setFlags(
 				Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(

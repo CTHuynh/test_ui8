@@ -128,5 +128,7 @@
     <string name="change_status_report">Status</string>
     <string name="choose_status_report">Welche Statusmeldung soll gesendet werden? </string>
     <string name="report_has_been_sent">Statusmeldung wurde verschickt</string>
+    <string name="not_available">nicht verfügbar</string>
+    <string name="status_report_sent">Statusmeldung wurde gesendet</string>
 
 </resources>
