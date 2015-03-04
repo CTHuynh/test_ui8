@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/security_settings" >
+        <ListPreference
+            android:dialogTitle="@string/password_required_for"
+            android:entries="@array/listOptionsSecurityLevels"
+            android:entryValues="@array/listValuesSecurityLevels"
+            android:key="SecurityLevel"
+            android:defaultValue="0"
+            android:summary="%s"
+            android:title="@string/security_level" />
+        <EditTextPreference
+            android:key="Password"
+            android:maxLength="10"
+            android:inputType="textPassword"
+            android:title="@string/password" />
+        <EditTextPreference
+            android:key="SMSCode"
+            android:title="@string/activation_code" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings" >
+        <Preference
+            android:fragment="SetupProfilesFragment"
+            android:title="@string/setup_profiles" >
+        </Preference>
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="ShowNotification"
+            android:title="@string/show_notification" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/listOptionsLogLevel"
+            android:entryValues="@array/listValuesLogLevel"
+            android:key="LogLevel"
+            android:summary="%s"
+            android:title="@string/log_level" />
+    </PreferenceCategory>
+    
+</PreferenceScreen>

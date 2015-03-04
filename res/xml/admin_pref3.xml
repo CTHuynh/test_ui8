@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/admin" >
+        <Preference
+            android:fragment="StatusReportsFragment"
+            android:title="@string/status_reports" >
+        </Preference>
+        <ListPreference
+            android:defaultValue="7"
+            android:entries="@array/listOptionsChargerStatusReporting"
+            android:entryValues="@array/listValuesChargerStatusReporting"
+            android:key="P3ChargerStatusReporting"
+            android:summary="%s"
+            android:title="@string/charge_status" />
+        <ListPreference
+            android:defaultValue="20"
+            android:entries="@array/listOptionsLocalWarningDuration"
+            android:entryValues="@array/listValuesLocalWarningDuration"
+            android:key="P3LocalWarningDuration"
+            android:summary="%s"
+            android:title="@string/local_warning_duration" />
+        <ListPreference
+            android:defaultValue="30"
+            android:entries="@array/listOptionsLocalAlarmDuration"
+            android:entryValues="@array/listValuesLocalAlarmDuration"
+            android:key="P3LocalAlarmDuration"
+            android:summary="%s"
+            android:title="@string/prealarm_duration" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

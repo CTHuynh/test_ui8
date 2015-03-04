@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/profile_settings_category" >
+        <Preference
+            android:fragment="SetupFragment"
+            android:title="@string/setup" >
+        </Preference>
+        <Preference
+            android:fragment="LoneworkerHeaderFragment"
+            android:title="@string/loneworker" >
+        </Preference>
+        <Preference
+            android:fragment="AdministrationFragment"
+            android:title="@string/admin" >
+        </Preference>
+        <Preference
+            android:fragment="ERCFragment"
+            android:title="@string/erc" >
+        </Preference>
+    </PreferenceCategory>
+
+</PreferenceScreen>

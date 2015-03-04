@@ -1,0 +1,27 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.test_ui1.MainActivity" >
+
+    <item
+        android:id="@+id/sendWorkStatus"
+        android:icon="@drawable/ic_action_chat"
+        android:showAsAction="always"
+        android:title="@string/send_status_report"/>
+    <item
+        android:id="@+id/statusLog"
+        android:showAsAction="withText"
+        android:title="@string/status_log"/>
+    <item
+        android:id="@+id/generalSettings"
+        android:showAsAction="withText"
+        android:title="@string/general_settings"/>
+    <item
+        android:id="@+id/profileSettings"
+        android:showAsAction="withText"
+        android:title="@string/profile_settings"/>
+    <item
+        android:id="@+id/logIn"
+        android:showAsAction="withText"
+        android:title="@string/log_in"/>
+
+</menu>

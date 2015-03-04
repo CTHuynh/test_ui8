@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:summary=""
+        android:title="@string/erc" >
+        <Preference
+            android:fragment="ERCNumbersFragment"
+            android:title="@string/erc_numbers" >
+        </Preference>
+        <Preference
+            android:fragment="SMSNumbersFragment"
+            android:title="@string/sms_numbers" >
+        </Preference>
+
+        <ListPreference
+            android:entries="@array/listOptionsEmergencyCallcycleMode"
+            android:entryValues="@array/listValuesEmergencyCallcycleMode"
+            android:key="P2EmergencyCallcycleMode"
+            android:defaultValue="0"
+            android:summary="%s"
+            android:title="Zyklus" />
+        <ListPreference
+            android:entries="@array/listOptionsEmergencyCallConnectionWaitingTime"
+            android:entryValues="@array/listValuesEmergencyCallConnectionWaitingTime"
+            android:key="P2EmergencyCallConnectionWaitingTime"
+            android:defaultValue="0"
+            android:summary="%s"
+            android:title="Wartezeit f. Verb. Notruf" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

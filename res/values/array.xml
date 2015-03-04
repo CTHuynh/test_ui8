@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="listOptions">
+        <item>Aus</item>
+        <item>Ein</item>
+    </string-array>
+    
+        <string-array name="listOptionsSecurityLevels">
+        <item>Level 0 (kein PW erforderlich)</item>
+        <item>Level 1 (Einstellungen)</item>
+        <item>Level 2 (PNA-Profile an/aus)</item>
+        <item>Level 3 (alles)</item>
+    </string-array>
+    <string-array name="listValuesSecurityLevels">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    
+    
+    
+    <string-array name="listOptionsLocalAlarmDuration">
+        <item>10 sec</item>
+        <item>20 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>30 min</item>
+        <item>1 h</item>
+        <item>2 h</item>
+        <item>4 h</item>
+        <item>8 h</item>
+        <item>12 h</item>
+    </string-array>
+    <string-array name="listValuesLocalAlarmDuration">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1800</item>
+        <item>3600</item>
+        <item>7200</item>
+        <item>14400</item>
+        <item>28800</item>
+        <item>43200</item>
+    </string-array>
+    <string-array name="listOptionsLocalWarningDuration">
+        <item>10 sec</item>
+        <item>20 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>30 min</item>
+        <item>1 h</item>
+        <item>2 h</item>
+        <item>4 h</item>
+        <item>8 h</item>
+        <item>12 h</item>
+    </string-array>
+    <string-array name="listValuesLocalWarningDuration">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1800</item>
+        <item>3600</item>
+        <item>7200</item>
+        <item>14400</item>
+        <item>28800</item>
+        <item>43200</item>
+    </string-array>
+    <string-array name="listOptionsMandownFallTimeout">
+        <item>200 ms (>20 cm)</item>
+        <item>300 ms (>40 cm)</item>
+        <item>400 ms (>80 cm)</item>
+        <item>500 ms (>120 cm)</item>
+    </string-array>
+    <string-array name="listValuesMandownFallTimeout">
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="listOptionsMandownFallThreshold">
+        <item>@string/very_high</item>
+        <item>@string/high</item>
+        <item>@string/medium</item>
+        <item>@string/low</item>
+        <item>@string/very_low</item>
+    </string-array>
+    <string-array name="listValuesMandownFallThreshold">
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="listOptionsMandownImpactTimeout">
+        <item>5 ms</item>
+        <item>20 ms</item>
+        <item>50 ms</item>
+        <item>100 ms</item>
+        <item>200 ms</item>
+        <item>500 ms</item>
+    </string-array>
+    <string-array name="listValuesMandownImpactTimeout">
+        <item>5</item>
+        <item>20</item>
+        <item>50</item>
+        <item>100</item>
+        <item>200</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="listOptionsMandownImpactThreshold">
+        <item>@string/very_high</item>
+        <item>@string/high</item>
+        <item>@string/medium</item>
+        <item>@string/low</item>
+        <item>@string/very_low</item>
+    </string-array>
+    <string-array name="listValuesMandownImpactThreshold">
+        <item>25</item>
+        <item>40</item>
+        <item>55</item>
+        <item>70</item>
+        <item>95</item>
+    </string-array>
+    <string-array name="listOptionsMandownTiltTimeout">
+        <item>10 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>20 min</item>
+        <item>30 min</item>
+        <item>45 min</item>
+        <item>1 h</item>
+    </string-array>
+    <string-array name="listValuesMandownTiltTimeout">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1200</item>
+        <item>1800</item>
+        <item>2700</item>
+        <item>3600</item>
+    </string-array>
+    <string-array name="listOptionsMandownTiltThreshold">
+        <item>bis 10°</item>
+        <item>bis 20°</item>
+        <item>bis 30°</item>
+        <item>bis 45°</item>
+        <item>bis 60°</item>
+        <item>bis 75°</item>
+    </string-array>
+    <string-array name="listValuesMandownTiltThreshold">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>75</item>
+    </string-array>
+    <string-array name="listValues">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownIdleTimeout">
+        <item>10 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+    </string-array>
+    <string-array name="listValuesMandownIdleTimeout">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+    </string-array>
+    <string-array name="listOptionsMandownIdleThreshold">
+        <item>@string/very_high</item>
+        <item>@string/high</item>
+        <item>@string/medium</item>
+        <item>@string/low</item>
+        <item>@string/very_low</item>
+    </string-array>
+    <string-array name="listValuesMandownIdleThreshold">
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+    <string-array name="listOptionsLocationSendIntervalAlarm">
+        <item>10 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+    </string-array>
+    <string-array name="listValuesLocationSendIntervalAlarm">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+    </string-array>
+    <string-array name="listOptionsLocationSendInterval">
+        <item>10 sec</item>
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+        <item>20 min</item>
+        <item>30 min</item>
+        <item>45 min</item>
+        <item>1 h</item>
+        <item>2 h</item>
+        <item>4 h</item>
+        <item>8 h</item>
+        <item>12 h</item>
+    </string-array>
+    <string-array name="listValuesLocationSendInterval">
+        <item>10</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+        <item>1200</item>
+        <item>1800</item>
+        <item>2700</item>
+        <item>3600</item>
+        <item>7200</item>
+        <item>14400</item>
+        <item>28800</item>
+        <item>43200</item>
+    </string-array>
+    <string-array name="listOptionsLogLevel">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="listValuesLogLevel">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+    <string-array name="listOptionsHeartbeatIntervall">
+        <item>30 sec</item>
+        <item>1 min</item>
+        <item>2 min</item>
+        <item>5 min</item>
+        <item>10 min</item>
+    </string-array>
+    <string-array name="listValuesHeartbeatIntervall">
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+        <item>300</item>
+        <item>600</item>
+    </string-array>
+    <string-array name="listOptionsSendVia">
+        <item>HTTP</item>
+        <item>SMS</item>
+        <item>HTTP oder SMS</item>
+        <item>Kein</item>
+    </string-array>
+    <string-array name="listValuesSendVia">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsgps">
+        <item>Aus</item>
+        <item>Erforderlich</item>
+        <item>Optional</item>
+    </string-array>
+    <string-array name="listValuesgps">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="listOptionsLoneWorkerProfile">
+        <item>Alle Profile</item>
+        <item>Profil 1</item>
+        <item>Profil 2</item>
+        <item>Profil 3</item>
+    </string-array>
+    <string-array name="listValuesLoneWorkerProfile">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsLoneWorkerProfileDuringCall">
+        <item>Keine Änderung</item>
+        <item>Profil 1</item>
+        <item>Profil 2</item>
+        <item>Profil 3</item>
+    </string-array>
+    <string-array name="listValuesLoneWorkerProfileDuringCall">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionstestAlarm">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuestestAlarm">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsConfigChangeable">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesConfigChangeable">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsactivated">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesactivated">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionslogin">
+        <item>Aus</item>
+        <item>Erforderlich</item>
+        <item>Optional</item>
+    </string-array>
+    <string-array name="listValueslogin">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="listOptionsLoneWorkerMode">
+        <item>Kein</item>
+        <item>Einfach</item>
+        <item>Positionsverfolgung</item>
+        <item>Totmann</item>
+        <item>Alarm</item>
+    </string-array>
+    <string-array name="listValuesLoneWorkerMode">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="listOptionsDisableMandownAfterAlarm">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesDisableMandownAfterAlarm">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownAutomaticCancel">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesMandownAutomaticCancel">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsDisableShutdownBeyond">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesDisableShutdownBeyond">
+        <item>0</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsLocationSend">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesLocationSend">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsShowStatusIcon">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesShowStatusIcon">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsLocationSendModeAlarm">
+        <item>"TryOnce"</item>
+        <item>"TryLater"</item>
+        <item>"SendNowOrLater"</item>
+        <item>"SendNow"</item>
+    </string-array>
+    <string-array name="listValuesLocationSendModeAlarm">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsLocationSource">
+        <item>GPS</item>
+        <item>Cell-ID</item>
+        <item>Peilung</item>
+    </string-array>
+    <string-array name="listValuesLocationSource">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="listOptionsManualAlarm">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesManualAlarm">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsManualAlarmReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Alarm mit Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Benachrichtgung</item>
+    </string-array>
+    <string-array name="listValuesManualAlarmReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsMandownReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesMandownReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsDisableMandownWhenCharging">
+        <item>Nein</item>
+        <item>Ja</item>
+    </string-array>
+    <string-array name="listValuesDisableMandownWhenCharging">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownStopMode">
+        <item>Kein</item>
+        <item>Einfach</item>
+        <item>Positionsverfolgung</item>
+        <item>Totmann</item>
+        <item>Alarm</item>
+    </string-array>
+    <string-array name="listValuesMandownStopMode">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="listOptionsMandownCheckIdle">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesMandownCheckIdle">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownCheckTilt">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesMandownCheckTilt">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownCheckImpact">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesMandownCheckImpact">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsMandownCheckFall">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesMandownCheckFall">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsHealthSend">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesHealthSend">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsSendInfoInHealth">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesSendInfoInHealth">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsHealthSendSuccessReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesHealthSendSuccessReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsHealthSendFailureReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesHealthSendFailureReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsGSMCheck">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesGSMCheck">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsGSMFailureReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesGSMFailureReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsGPSCheck">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesGPSCheck">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsGPSFailureReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesGPSFailureReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsTrackingStopMode">
+        <item>Kein</item>
+        <item>Einfach</item>
+        <item>Positionsverfolgung</item>
+        <item>Totmann</item>
+        <item>Alarm</item>
+    </string-array>
+    <string-array name="listValuesTrackingStopMode">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="listOptionsBatteryCheck">
+        <item>An</item>
+        <item>Aus</item>
+    </string-array>
+    <string-array name="listValuesBatteryCheck">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="listOptionsBatteryFailureReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesBatteryFailureReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsE2ECheck">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesE2ECheck">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsE2EFailureReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesE2EFailureReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsE2ESuccessReporting">
+        <item>Lokale Warnung</item>
+        <item>Lokaler Alarm</item>
+        <item>Alarm senden</item>
+        <item>Alarm mit Anruf</item>
+        <item>Sofortiger Anruf</item>
+        <item>Stummer Alarm</item>
+        <item>Bericht senden</item>
+        <item>Information senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesE2ESuccessReporting">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>8</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsConfigurationLocked">
+        <item>änderbar</item>
+        <item>nicht änderbar</item>
+    </string-array>
+    <string-array name="listValuesConfigurationLocked">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsHealthSendMode">
+        <item>"TryOnce"</item>
+        <item>"TryLater"</item>
+        <item>"SendNowOrLater"</item>
+        <item>"SendNow"</item>
+    </string-array>
+    <string-array name="listValuesHealthSendMode">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsLimitedReports">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesLimitedReports">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsShortenMessages">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesShortenMessages">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsRestartOnStuckMessage">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesRestartOnStuckMessage">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsChargerStatusReporting">
+        <item>Bericht senden</item>
+        <item>Keine Nachricht</item>
+    </string-array>
+    <string-array name="listValuesChargerStatusReporting">
+        <item>5</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="listOptionsIncludeTimeZone">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesIncludeTimeZone">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsDisableWap">
+        <item>aus</item>
+        <item>ein</item>
+    </string-array>
+    <string-array name="listValuesDisableWap">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsNoHandshakeForSMS">
+        <item>ein</item>
+        <item>aus</item>
+    </string-array>
+    <string-array name="listValuesNoHandshakeForSMS">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsLoneWorkerMinMode">
+        <item>Kein</item>
+        <item>Einfach</item>
+        <item>Positionsverfolgung</item>
+    </string-array>
+    <string-array name="listValuesLoneWorkerMinMode">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="listOptionsGeofenceReportAtStart">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesGeofenceReportAtStart">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsEnableGeofence">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesEnableGeofence">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsEmergencyCallcycleMode">
+        <item>Abwechselnd</item>
+        <item>Erst SMS dann Anrufe</item>
+    </string-array>
+    <string-array name="listValuesEmergencyCallcycleMode">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsEmergencyCallConnectionWaitingTime">
+        <item>Bis zur Unterbrechung des Netzwerks</item>
+        <item>20 Sek.</item>
+        <item>30 Sek.</item>
+        <item>40 Sek.</item>
+        <item>1 Min.</item>
+        <item>1 Min. 30 Sek.</item>
+        <item>2 Minuten</item>
+    </string-array>
+    <string-array name="listValuesEmergencyCallConnectionWaitingTime">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="listOptionsTrackLink">
+        <item>Ohne TrackLink</item>
+        <item>Mit TrackLink</item>
+    </string-array>
+    <string-array name="listValuesTrackLink">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="listOptionsPnaCenterForward">
+        <item>Keine Übergabe</item>
+        <item>Bosch Sicherheitssysteme</item>
+        <item>Presentec/DRK</item>
+        <item>SOS Service</item>
+    </string-array>
+    <string-array name="listValuesPnaCenterForward">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="listOptionsPnaCenterCallFirst">
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="listValuesPnaCenterCallFirst">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+</resources>

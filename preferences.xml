@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrefernceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PrefernceScreen android:title="Verbindungseinst." >
+        <PrefernceScreen
+            android:summary="Telefonnummern für Notruf"
+            android:title="Notrufnummern" >
+            <EditTextPreference
+                android:key="P1ERCNumber0"
+                android:summary="Erste Notruftelefonnummer"
+                android:title="Notrufnummer 1" />
+            <EditTextPreference
+                android:key="P1ERCNumber1"
+                android:summary="Zweite Notruftelefonnummer"
+                android:title="Notrufnummer 2" />
+            <EditTextPreference
+                android:key="P1ERCNumber2"
+                android:summary="Dritte Notruftelefonnummer"
+                android:title="Notrufnummer 3" />
+            <EditTextPreference
+                android:key="P1ERCNumber3"
+                android:summary="Vierte Notruftelefonnummer"
+                android:title="Notrufnummer 4" />
+            <EditTextPreference
+                android:key="P1ERCNumber4"
+                android:summary="Fünfte Notruftelefonnummer"
+                android:title="Notrufnummer 5" />
+        </PrefernceScreen>
+
+        <PrefernceScreen
+            android:summary="Telefonnummern für Notfall-SMS"
+            android:title="Notfall SMS Nummern" >
+            <EditTextPreference
+                android:key="P1SmsHost0"
+                android:summary="Erste Notrufsmsnummer"
+                android:title="SMS-Nummer 1" />
+            <EditTextPreference
+                android:key="P1SmsHost1"
+                android:summary="Zweite Notrufsmsnummer"
+                android:title="SMS-Nummer 2" />
+            <EditTextPreference
+                android:key="P1SmsHost2"
+                android:summary="Dritte Notrufsmsnummer"
+                android:title="SMS-Nummer 3" />
+            <EditTextPreference
+                android:key="P1SmsHost3"
+                android:summary="Vierte Notrufsmsnummer"
+                android:title="SMS-Nummer 4" />
+            <EditTextPreference
+                android:key="P1SmsHost4"
+                android:summary="Fünfte Notrufsmsnummer"
+                android:title="SMS-Nummer 5" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Alarm-Übertragung"
+            android:title="Übertragungsweg" >
+            <EditTextPreference
+                android:key="P1SmsHost"
+                android:summary="SMS Nummer für Konfigurationsnachrichten"
+                android:title="SmsHost" />
+
+            <ListPreference
+                android:entries="@array/listOptionsSendVia"
+                android:entryValues="@array/listValuesSendVia"
+                android:key="P1SendVia"
+                android:summary="Übertragungsweg für Nachrichten"
+                android:title="Übertragungsweg" />
+
+            <EditTextPreference
+                max="43200"
+                min="0"
+                android:key="P1GprsIP"
+                android:summary="GPRS IP"
+                android:title="Server IP Adresse" />
+            <EditTextPreference
+                max="600"
+                min="28"
+                android:key="P1HeartbeatInterval"
+                android:summary="Keep-Alive Intervall"
+                android:title="Keep-Alive Heartbeat Intervall" />
+        </PrefernceScreen>
+    </PrefernceScreen>
+    <PrefernceScreen android:title="PNA Überwachungen" >
+        <PrefernceScreen
+            android:summary="Allgemeine Einstellungen der PNA"
+            android:title="Allg. PNA Einstellungen" >
+            <ListPreference
+                android:entries="@array/listOptionsMandownReporting"
+                android:entryValues="@array/listValuesMandownReporting"
+                android:key="P1MandownReporting"
+                android:summary="Art der Totmannmeldungen"
+                android:title="Totmann-Bericht" />
+            <ListPreference
+                android:entries="@array/listOptionsDisableMandownAfterAlarm"
+                android:entryValues="@array/listValuesDisableMandownAfterAlarm"
+                android:key="P1DisableMandownAfterAlarm"
+                android:summary="Im Alarm Modus keine weiteren Totmann Alarme senden"
+                android:title="Totmann nicht im Alarmfall" />
+            <ListPreference
+                android:entries="@array/listOptionsDisableMandownWhenCharging"
+                android:entryValues="@array/listValuesDisableMandownWhenCharging"
+                android:key="P1DisableMandownWhenCharging"
+                android:summary="Totman bei Aufladung abschalten"
+                android:title="Totmann bei Aufladung aus" />
+            <ListPreference
+                android:entries="@array/listOptionsMandownAutomaticCancel"
+                android:entryValues="@array/listValuesMandownAutomaticCancel"
+                android:key="P1MandownAutomaticCancel"
+                android:summary="Voralarm automatisch durch Bewegung beendet"
+                android:title="Totmann autom. beenden" />
+            <ListPreference
+                android:entries="@array/listOptionsDisableShutdownBeyond"
+                android:entryValues="@array/listValuesDisableShutdownBeyond"
+                android:key="P1DisableShutdownBeyond"
+                android:summary="Abschaltung des Telefons verhindern"
+                android:title="Abschaltung verhindern" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Regelmässig Positionsberichte senden"
+            android:title="Positionsberichte" >
+            <ListPreference
+                android:entries="@array/listOptionsLocationSend"
+                android:entryValues="@array/listValuesLocationSend"
+                android:key="P1LocationSend"
+                android:summary="Positionsbericht senden"
+                android:title="Positionsbericht" />
+
+            <EditTextPreference
+                max="0"
+                min="43200"
+                android:key="P1LocationSendInterval"
+                android:summary="Intervall für Positionsübermittlung"
+                android:title="Intervall" />
+            <EditTextPreference
+                max="0"
+                min="43200"
+                android:key="P1LocationSendIntervalAlarm"
+                android:summary="Intervall für Positionsübermittlung im Alarmfall"
+                android:title="Intervall im Alarmfall" />
+
+            <ListPreference
+                android:entries="@array/listOptionsLocationSendModeAlarm"
+                android:entryValues="@array/listValuesLocationSendModeAlarm"
+                android:key="P1LocationSendModeAlarm"
+                android:summary="Übertragungsweg im Alarmfall"
+                android:title="Übertragungsw. im Alarm" />
+            <ListPreference
+                android:entries="@array/listOptionsLocationSource"
+                android:entryValues="@array/listValuesLocationSource"
+                android:key="P1LocationSource"
+                android:summary="Art der Positionsermittlung (GPS, Netzwerk, ...)"
+                android:title="Positionsart" />
+
+            <EditTextPreference
+                max="0"
+                min="43200"
+                android:key="P1LocationSendIntervalSecondary"
+                android:summary="Positionsintervall bei Umschaltung auf SMS (fallback) "
+                android:title="Positionsbericht Fallback" />
+            <EditTextPreference
+                max="2"
+                min="65535"
+                android:key="P1GPSUpdateInterval"
+                android:summary="Intervall um GPS-Position zu ermitteln"
+                android:title="Interv. GPS Update" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Einstellungen zum manuellen Alarme"
+            android:title="Notruftaste" >
+            <ListPreference
+                android:entries="@array/listOptionsManualAlarm"
+                android:entryValues="@array/listValuesManualAlarm"
+                android:key="P1ManualAlarm"
+                android:summary="Manuellen Alarm ein-/ ausschalten"
+                android:title="Notruftaste" />
+            <ListPreference
+                android:entries="@array/listOptionsManualAlarmReporting"
+                android:entryValues="@array/listValuesManualAlarmReporting"
+                android:key="P1ManualAlarmReporting"
+                android:summary="Bericht senden oder speichern"
+                android:title="Bericht" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Untätigkeitsprüfung"
+            android:title="Untätigkeit" >
+            <ListPreference
+                android:entries="@array/listOptionsMandownCheckIdle"
+                android:entryValues="@array/listValuesMandownCheckIdle"
+                android:key="P1MandownCheckIdle"
+                android:summary="Untätigkeitsprüfung"
+                android:title="Untätigkeit" />
+
+            <EditTextPreference
+                max="5"
+                min="85"
+                android:key="P1MandownIdleThreshold"
+                android:summary="Beschleunigung (5:Empfindlich, ..., 20:Unempfindlich)"
+                android:title="Schwellwert" />
+            <EditTextPreference
+                max="10"
+                min="300"
+                android:key="P1MandownIdleTimeout"
+                android:summary="Zeit in Sekunden"
+                android:title="Timeout" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Neigungsprüfung"
+            android:title="Neigung" >
+            <ListPreference
+                android:entries="@array/listOptionsMandownCheckTilt"
+                android:entryValues="@array/listValuesMandownCheckTilt"
+                android:key="P1MandownCheckTilt"
+                android:summary="Neigungsprüfung"
+                android:title="Neigung" />
+
+            <EditTextPreference
+                max="5"
+                min="75"
+                android:key="P1MandownTiltThreshold"
+                android:summary="Zulässige Neigung (Grad)"
+                android:title="Schwellwert" />
+            <EditTextPreference
+                max="10"
+                min="3600"
+                android:key="P1MandownTiltTimeout"
+                android:summary="Zulässige Zeitdauer der Neigung (Sekunden)"
+                android:title="Timeout" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Aufschlagsprüfung"
+            android:title="Aufschlag" >
+            <ListPreference
+                android:entries="@array/listOptionsMandownCheckImpact"
+                android:entryValues="@array/listValuesMandownCheckImpact"
+                android:key="P1MandownCheckImpact"
+                android:summary="Aufschlagsprüfung"
+                android:title="Aufschlag" />
+
+            <EditTextPreference
+                max="25"
+                min="95"
+                android:key="P1MandownImpactThreshold"
+                android:summary="Beschleunigung (75:Empfindlich, ..., 95:Unempfindlich)"
+                android:title="Schwellwert" />
+            <EditTextPreference
+                max="5"
+                min="500"
+                android:key="P1MandownImpactTimeout"
+                android:summary="Zeitüberschreitung führt zu Alarm (Millisekunden)"
+                android:title="Timeout" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Freifallprüfung"
+            android:title="Freifall" >
+            <ListPreference
+                android:entries="@array/listOptionsMandownCheckFall"
+                android:entryValues="@array/listValuesMandownCheckFall"
+                android:key="P1MandownCheckFall"
+                android:summary="Freifallprüfung"
+                android:title="Freifall" />
+
+            <EditTextPreference
+                max="3"
+                min="10"
+                android:key="P1MandownFallThreshold"
+                android:summary="Beschleunigung (3:Empfindlich, ..., 10:Unempfindlich)"
+                android:title="Schwellwert" />
+            <EditTextPreference
+                max="200"
+                min="500"
+                android:key="P1MandownFallTimeout"
+                android:summary="Zeitüberschreitung führt zu Alarm (Millisekunden)"
+                android:title="Timeout" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Geozone Einstellungen"
+            android:title="Geozone" >
+            <EditTextPreference
+                max="300"
+                min="65535"
+                android:key="P1GeofenceCheckInterval"
+                android:summary="Überwachungsintervall"
+                android:title="Geoz. Überwachungsinterv." />
+            <EditTextPreference
+                max="0"
+                min="65535"
+                android:key="P1GeofenceThreshold"
+                android:summary="Schwellwert Grenzüberschreitung"
+                android:title="Schwellwert" />
+            <EditTextPreference
+                max="0"
+                min="65535"
+                android:key="P1GeofenceAccuracy"
+                android:summary="Genauigkeit basierend auf 1km Radius: [0:130,1:60,2:30]m"
+                android:title="Genauigkeit" />
+
+            <ListPreference
+                android:entries="@array/listOptionsGeofenceReportAtStart"
+                android:entryValues="@array/listValuesGeofenceReportAtStart"
+                android:key="P1GeofenceReportAtStart"
+                android:summary="Bericht beim Start senden"
+                android:title="Bericht beim Start" />
+            <ListPreference
+                android:entries="@array/listOptionsEnableGeofence"
+                android:entryValues="@array/listValuesEnableGeofence"
+                android:key="P1EnableGeofence"
+                android:summary="Geozonenfunktionalität einschalten"
+                android:title="Geozone ein" />
+        </PrefernceScreen>
+    </PrefernceScreen>
+    <PrefernceScreen android:title="Techn. Überwachungen" >
+        <PrefernceScreen
+            android:summary="Überprüfung der Netzwerkverbindung"
+            android:title="GSM" >
+            <ListPreference
+                android:entries="@array/listOptionsGSMCheck"
+                android:entryValues="@array/listValuesGSMCheck"
+                android:key="P1GSMCheck"
+                android:summary="Überprüfung der Netzwerkverbindung"
+                android:title="GSM Prüfung" />
+
+            <EditTextPreference
+                max="300"
+                min="43200"
+                android:key="P1GSMCheckInterval"
+                android:summary="Intervall um GSM-Empfang zu prüfen"
+                android:title="Intervall" />
+
+            <ListPreference
+                android:entries="@array/listOptionsGSMFailureReporting"
+                android:entryValues="@array/listValuesGSMFailureReporting"
+                android:key="P1GSMFailureReporting"
+                android:summary="Nachricht bei GSM-Signalfehler"
+                android:title="Fehlerbericht" />
+
+            <EditTextPreference
+                max="0"
+                min="100"
+                android:key="P1GSMFailureThreshold"
+                android:summary="GSM-Signalfehler Schwellwert"
+                android:title="Schwellwert" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="GPS-Prüfung"
+            android:title="GPS" >
+            <ListPreference
+                android:entries="@array/listOptionsGPSCheck"
+                android:entryValues="@array/listValuesGPSCheck"
+                android:key="P1GPSCheck"
+                android:summary="Überprüfung GPS Empfang"
+                android:title="GPS Prüfung" />
+
+            <EditTextPreference
+                max="0"
+                min="10"
+                android:key="P1GPSCheckIntervalTicks"
+                android:summary="GPS nur nach jedem (n+1)ten GPS Update überprüfen"
+                android:title="Intervall" />
+
+            <ListPreference
+                android:entries="@array/listOptionsGPSFailureReporting"
+                android:entryValues="@array/listValuesGPSFailureReporting"
+                android:key="P1GPSFailureReporting"
+                android:summary="Nachricht bei Fehlschlag des GPS-Empfangs"
+                android:title="Fehlerbericht" />
+
+            <EditTextPreference
+                max="0"
+                min="65535"
+                android:key="P1CurrentLocationTimeout"
+                android:summary="Zeitüberschreitung für Positionsbestimmung"
+                android:title="Zeitüberschreitung" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Batterieprüfung"
+            android:title="Batterie" >
+            <ListPreference
+                android:entries="@array/listOptionsBatteryCheck"
+                android:entryValues="@array/listValuesBatteryCheck"
+                android:key="P1BatteryCheck"
+                android:summary="Batterieprüfung"
+                android:title="Batterie" />
+
+            <EditTextPreference
+                max="300"
+                min="43200"
+                android:key="P1BatteryCheckInterval"
+                android:summary="Prüfintervall"
+                android:title="Intervall" />
+
+            <ListPreference
+                android:entries="@array/listOptionsBatteryFailureReporting"
+                android:entryValues="@array/listValuesBatteryFailureReporting"
+                android:key="P1BatteryFailureReporting"
+                android:summary="Nachrichten bei Fehlschlag der Batterieprüfung"
+                android:title="Fehlerbericht" />
+
+            <EditTextPreference
+                max="0"
+                min="100"
+                android:key="P1BatteryFailureThreshold"
+                android:summary="Schwelle bei welcher eine Nachricht ausgelöst wird"
+                android:title="Schwellwert" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Serververbindungsprüfung"
+            android:title="E2E" >
+            <ListPreference
+                android:entries="@array/listOptionsE2ECheck"
+                android:entryValues="@array/listValuesE2ECheck"
+                android:key="P1E2ECheck"
+                android:summary="Serververbindungsprüfung"
+                android:title="Ende-zu-Ende Prüfung" />
+
+            <EditTextPreference
+                max="300"
+                min="43200"
+                android:key="P1E2ECheckInterval"
+                android:summary="Prüfintervall"
+                android:title="Intervall" />
+            <EditTextPreference
+                max="10"
+                min="43200"
+                android:key="P1E2ETimeout"
+                android:summary="Bericht nach Zeitüberschreitung"
+                android:title="Timeout" />
+
+            <ListPreference
+                android:entries="@array/listOptionsE2EFailureReporting"
+                android:entryValues="@array/listValuesE2EFailureReporting"
+                android:key="P1E2EFailureReporting"
+                android:summary="Nachrichten bei Fehlschlag der Serververbindung"
+                android:title="Fehlerbericht" />
+            <ListPreference
+                android:entries="@array/listOptionsE2ESuccessReporting"
+                android:entryValues="@array/listValuesE2ESuccessReporting"
+                android:key="P1E2ESuccessReporting"
+                android:summary="Nachrichten bei Erfolg der Serververbindung"
+                android:title="Erfolgsbericht" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Erweiterte Berichte senden"
+            android:title="Erweiterte Berichte" >
+            <ListPreference
+                android:entries="@array/listOptionsLimitedReports"
+                android:entryValues="@array/listValuesLimitedReports"
+                android:key="P1LimitedReports"
+                android:summary="Alle Extra-Berichte unterdrücken"
+                android:title="Extra-Ber. unterdrückt" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Status Aufladung"
+            android:title="Aufladung" >
+            <ListPreference
+                android:entries="@array/listOptionsChargerStatusReporting"
+                android:entryValues="@array/listValuesChargerStatusReporting"
+                android:key="P1ChargerStatusReporting"
+                android:summary="Statusbericht bei Aufladung senden"
+                android:title="Status Aufladung" />
+        </PrefernceScreen>
+    </PrefernceScreen>
+    <PrefernceScreen android:title="sonstige Einstellungen" >
+        <PrefernceScreen
+            android:summary="Mit Zeitzone"
+            android:title="Zeitzone" >
+            <ListPreference
+                android:entries="@array/listOptionsIncludeTimeZone"
+                android:entryValues="@array/listValuesIncludeTimeZone"
+                android:key="P1IncludeTimeZone"
+                android:summary="Zeitstempel in lokaler Zeitzone senden"
+                android:title="Lokale Zeitzone" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="SMS Einstellungen"
+            android:title="SMS" >
+            <ListPreference
+                android:entries="@array/listOptionsNoHandshakeForSMS"
+                android:entryValues="@array/listValuesNoHandshakeForSMS"
+                android:key="P1NoHandshakeForSMS"
+                android:summary="SMS Bestätigung senden"
+                android:title="SMS Handshake" />
+
+            <EditTextPreference
+                max="0"
+                min="5"
+                android:key="P1SmsSendDelay"
+                android:summary="SMS Sendeverzögerung"
+                android:title="SMS Sendeverzögerung" />
+            <EditTextPreference
+                max="0"
+                min="60"
+                android:key="P1AckTimeout"
+                android:summary="SMS Timeout"
+                android:title="AckTimeout" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Alarm- und Voralarmzeiten"
+            android:title="Zeiten" >
+            <EditTextPreference
+                max="0"
+                min="65535"
+                android:key="P1LocalWarningDuration"
+                android:summary="Zeit bei lokaler Warnung vor nächster Aktion (in Sekunden)"
+                android:title="Zeit Lokale Warnung" />
+            <EditTextPreference
+                max="0"
+                min="65535"
+                android:key="P1LocalAlarmDuration"
+                android:summary="Dauer des Voralarms (in Sekunden)"
+                android:title="Dauer Voralarm" />
+            <EditTextPreference
+                max="4"
+                min="65535"
+                android:key="P1LongBeepInterval"
+                android:summary="Warnintervall während Voralarm (in Sekunden)"
+                android:title="Warninterv. Voralarm" />
+            <EditTextPreference
+                max="4"
+                min="65535"
+                android:key="P1ShortBeepInterval"
+                android:summary="Warnintervall nach Alarmauslösung (in Sekunden)"
+                android:title="Sound-Beacon Intervall" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Telefonnummern von Notrufzentralen"
+            android:title="Notrufzentralen" >
+            <ListPreference
+                android:entries="@array/listOptionsEmergencyCallcycleMode"
+                android:entryValues="@array/listValuesEmergencyCallcycleMode"
+                android:key="P1EmergencyCallcycleMode"
+                android:summary="Zyklus des Notrufs"
+                android:title="Zyklus" />
+            <ListPreference
+                android:entries="@array/listOptionsEmergencyCallConnectionWaitingTime"
+                android:entryValues="@array/listValuesEmergencyCallConnectionWaitingTime"
+                android:key="P1EmergencyCallConnectionWaitingTime"
+                android:summary="Wartezeit für Verbindung Notfallanruf"
+                android:title="Wartezeit f. Verb. Notruf" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Camera and IOIO connection"
+            android:title="Cam/IOIO" >
+            <ListPreference
+                android:entries="@array/listOptions"
+                android:entryValues="@array/listValues"
+                android:key="P1CamReporting"
+                android:summary="Art der Kamera-Meldungen"
+                android:title="Camera-Berichtsmodus" />
+
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1CamNumImages"
+                android:summary="Anzahl der Kamera-Bilder"
+                android:title="Bildanzahl" />
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1CamWidth"
+                android:summary="Hor. Auflösung"
+                android:title="Breite" />
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1CamHeight"
+                android:summary="Vert. Auflösung"
+                android:title="Höhe" />
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1CamServerAddr"
+                android:summary="UDP Server"
+                android:title="Server" />
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1CamBitrate"
+                android:summary="H264 Bitrate in kBits/s oder 0"
+                android:title="H264 Bitrate" />
+        </PrefernceScreen>
+        <PrefernceScreen
+            android:summary="Logging"
+            android:title="Log" >
+            <EditTextPreference
+                max="0"
+                min="9"
+                android:key="P1LogLevel"
+                android:summary="Berichte auf einer MicroSD Karte mitschreiben"
+                android:title="LogLevel" />
+        </PrefernceScreen>
+    </PrefernceScreen>
+
+</PrefernceScreen>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:title="@string/status_reports" >
+        <EditTextPreference
+            android:key="P1StatusName0"
+            android:title="@string/report1" />
+        <EditTextPreference
+            android:key="P1StatusName1"
+            android:title="@string/report2" />
+        <EditTextPreference
+            android:key="P1StatusName2"
+            android:title="@string/report3" />
+        <EditTextPreference
+            android:key="P1StatusName3"
+            android:title="@string/report4" />
+        <EditTextPreference
+            android:key="P1StatusName4"
+            android:title="@string/report5" />
+                <EditTextPreference
+            android:key="P1StatusName5"
+            android:title="@string/report6" />
+        <EditTextPreference
+            android:key="P1StatusName6"
+            android:title="@string/report7" />
+        <EditTextPreference
+            android:key="P1StatusName7"
+            android:title="@string/report8" />
+        <EditTextPreference
+            android:key="P1StatusName8"
+            android:title="@string/report9" />
+        <EditTextPreference
+            android:key="P1StatusName9"
+            android:title="@string/report10" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

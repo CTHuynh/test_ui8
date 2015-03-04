@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/loneworker" >
+        <Preference
+            android:fragment="MandownGeneralFragment"
+            
+            android:title="@string/mandown_general" >
+        </Preference>
+        <Preference
+            android:fragment="SensorsHeaderFragment"
+            android:title="@string/sensors_settings" >
+        </Preference>
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3LocationSend"
+            android:title="@string/location_reports" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3ManualAlarm"
+            android:title="@string/alarm_button" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/mandown" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3MandownCheckIdle"
+            android:title="@string/idle" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3MandownCheckTilt"
+            android:title="@string/tilt" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3MandownCheckImpact"
+            android:title="@string/impact" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="P3MandownCheckFall"
+            android:title="@string/fall" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

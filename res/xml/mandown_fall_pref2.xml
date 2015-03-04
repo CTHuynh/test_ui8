@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/mandown_fall" >
+
+
+        <ListPreference
+            android:defaultValue="3"
+            android:entries="@array/listOptionsMandownFallThreshold"
+            android:entryValues="@array/listValuesMandownFallThreshold"
+            android:key="P2MandownFallThreshold"
+            android:summary="%s"
+            android:title="@string/sensitivity" />
+        <ListPreference
+            android:defaultValue="500"
+            android:entries="@array/listOptionsMandownFallTimeout"
+            android:entryValues="@array/listValuesMandownFallTimeout"
+            android:key="P2MandownFallTimeout"
+            android:summary="%s"
+            android:title="@string/timeout_hight_equivalent" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

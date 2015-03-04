@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+
+        android:title="@string/mandown_idle" >
+
+
+        <ListPreference
+            android:defaultValue="15"
+            android:entries="@array/listOptionsMandownIdleThreshold"
+            android:entryValues="@array/listValuesMandownIdleThreshold"
+            android:key="P2MandownIdleThreshold"
+            android:summary="%s"
+            android:title="@string/sensitivity" />
+        <ListPreference
+            android:defaultValue="60"
+            android:entries="@array/listOptionsMandownIdleTimeout"
+            android:entryValues="@array/listValuesMandownIdleTimeout"
+            max="10"
+            min="300"
+            android:summary="%s"
+            android:key="P2MandownIdleTimeout"
+            android:title="@string/timeout" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

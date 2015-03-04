@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+        <RadioGroup
+            android:id="@id/radioGroup1"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@id/profile1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile1"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@id/profile2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile2"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@id/profile3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile3"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="20sp" />
+        </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fragmentsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+    </FrameLayout>
+
+</LinearLayout>

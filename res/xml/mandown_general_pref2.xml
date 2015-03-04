@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/mandown_general" >
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/listOptionsMandownReporting"
+            android:entryValues="@array/listValuesMandownReporting"
+            android:key="P2MandownReporting"
+            android:summary="%s"
+            android:title="@string/mandown_report_modus" />
+        <CheckBoxPreference
+            android:defaultValue="1"
+            android:key="P2DisableMandownAfterAlarm"
+            android:summary="@string/on_alarm"
+            android:title="@string/more_alarm" />
+        <CheckBoxPreference
+            android:defaultValue="1"
+            android:key="P2DisableMandownWhenCharging"
+            android:summary="@string/mandown_off_while_charging"
+            android:title="@string/charging" />
+        <CheckBoxPreference
+            android:defaultValue="0"
+            android:key="P2MandownAutomaticCancel"
+            android:summary="@string/mandown_auto_cancel"
+            android:title="@string/prealarm_cancel" />
+        <CheckBoxPreference
+            android:defaultValue="0"
+            android:key="P2DisableShutdownBeyond"
+            android:summary="@string/disable_shutdown_summary"
+            android:title="@string/disable_shutdown" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
