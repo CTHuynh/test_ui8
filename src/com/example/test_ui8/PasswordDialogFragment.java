@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -90,6 +91,10 @@ public class PasswordDialogFragment extends DialogFragment {
 							}
 						});
 		Dialog dialog=builder.create();
+		
+		//get soft keyboard when dialog is created
+		dialog.getWindow().setSoftInputMode (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+		
 		//prevents user from closing dialog by touching outside
 		dialog.setCanceledOnTouchOutside(false);
 		return dialog;
