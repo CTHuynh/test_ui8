@@ -114,13 +114,6 @@ public class ProfileSettingsActivity extends Activity implements
 					.replace(R.id.fragmentsContainer,
 							new SensorsHeaderFragment()).commit();
 			break;
-		case "StatusReportsFragment":
-			getFragmentManager()
-					.beginTransaction()
-					.addToBackStack(null)
-					.replace(R.id.fragmentsContainer,
-							new StatusReportsFragment()).commit();
-			break;
 		case "ERCNumbersFragment":
 			getFragmentManager()
 					.beginTransaction()

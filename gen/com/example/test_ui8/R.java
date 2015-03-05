@@ -414,8 +414,5 @@ public final class R {
         public static final int sms_numbers_pref1=0x7f04002d;
         public static final int sms_numbers_pref2=0x7f04002e;
         public static final int sms_numbers_pref3=0x7f04002f;
-        public static final int status_reports_pref1=0x7f040030;
-        public static final int status_reports_pref2=0x7f040031;
-        public static final int status_reports_pref3=0x7f040032;
     }
 }
