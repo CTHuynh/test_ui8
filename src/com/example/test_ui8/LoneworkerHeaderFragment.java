@@ -2,6 +2,7 @@ package com.example.test_ui8;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.view.View;
 
 public class LoneworkerHeaderFragment extends PreferenceFragment  {
 
@@ -42,6 +43,15 @@ public class LoneworkerHeaderFragment extends PreferenceFragment  {
 			break;
 		}		
 		super.onStart();
+	}
+	
+	protected void loadPreference(){
+		getPreferenceManager().getSharedPreferences();
+		
+	}
+	
+	protected void savePreference(View view){
+		
 	}
 
 //	@Override
