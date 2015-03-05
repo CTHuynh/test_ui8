@@ -202,6 +202,7 @@ public final class R {
         public static final int activity_profile_settings=0x7f030001;
         public static final int password_dialog=0x7f030002;
         public static final int status_report_dialog=0x7f030003;
+        public static final int toggle_button=0x7f030004;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -277,7 +278,9 @@ public final class R {
         public static final int number3=0x7f070052;
         public static final int number4=0x7f070053;
         public static final int number5=0x7f070054;
+        public static final int off=0x7f070082;
         public static final int ok=0x7f070072;
+        public static final int on=0x7f070081;
         public static final int on_alarm=0x7f070026;
         public static final int password=0x7f070064;
         public static final int password_required_for=0x7f070068;

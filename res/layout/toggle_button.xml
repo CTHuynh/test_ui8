@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <Switch
+        android:id="@+android:id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="savePreference"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical|center_horizontal"
+        android:textOff="@string/off"
+        android:textOn="@string/on" />
+
+</FrameLayout>

@@ -11,10 +11,11 @@
             android:title="@string/sensors_settings" >
         </Preference>
 
-        <CheckBoxPreference
-            android:disableDependentsState="false"
-            android:defaultValue="false"
+        <Preference
+            android:defaultValue="true"
             android:key="P1LocationSend"
+            android:fragment="LocationSendFragment"
+            android:widgetLayout="@layout/toggle_button"
             android:title="@string/location_reports" />
         <CheckBoxPreference
             android:disableDependentsState="false"

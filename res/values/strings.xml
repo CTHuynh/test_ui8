@@ -130,5 +130,7 @@
     <string name="report_has_been_sent">Statusmeldung wurde verschickt</string>
     <string name="not_available">nicht verfügbar</string>
     <string name="status_report_sent">Statusmeldung wurde gesendet</string>
+    <string name="on">An</string>
+    <string name="off">Aus</string>
 
 </resources>
