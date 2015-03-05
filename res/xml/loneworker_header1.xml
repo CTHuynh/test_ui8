@@ -5,23 +5,24 @@
         <Preference
             android:fragment="MandownGeneralFragment"
             android:title="@string/mandown_general" >
-        </Preference>
+        </Preference>    
         <Preference
             android:fragment="SensorsHeaderFragment"
             android:title="@string/sensors_settings" >
-        </Preference>
-
-        <Preference
+        </Preference>      
+        <CheckBoxPreference
             android:defaultValue="true"
             android:key="P1LocationSend"
             android:fragment="LocationSendFragment"
             android:widgetLayout="@layout/toggle_button"
-            android:title="@string/location_reports" />
-        <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:title="@string/location_reports" /> 
+        <Preference
             android:defaultValue="false"
             android:key="P1ManualAlarm"
-            android:title="@string/alarm_button" />
+            android:fragment="ManualAlarmFragment"
+            android:widgetLayout="@layout/toggle_button"
+            android:title="@string/alarm_button" >
+         </Preference>        
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/mandown" >
         <CheckBoxPreference

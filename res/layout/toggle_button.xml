@@ -5,7 +5,7 @@
     android:layout_height="wrap_content" >
 
     <Switch
-        android:id="@+android:id/title"
+        android:id="@android:id/checkbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="savePreference"
