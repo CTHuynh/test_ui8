@@ -17,20 +17,6 @@ public class ProfileSettingsActivity extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_profile_settings);
 
-		switch (MainActivity.PROFILE_STATUS) {
-		case 1:
-			RadioButton button1 = (RadioButton) findViewById(R.id.profile1);
-			button1.setChecked(true);
-			break;
-		case 2:
-			RadioButton button2 = (RadioButton) findViewById(R.id.profile2);
-			button2.setChecked(true);
-			break;
-		case 3:
-			RadioButton button3 = (RadioButton) findViewById(R.id.profile3);
-			button3.setChecked(true);
-			break;
-		}
 
 		getFragmentManager()
 				.beginTransaction()
@@ -40,24 +26,6 @@ public class ProfileSettingsActivity extends Activity implements
 	}
 
 	public void onRadioButtonClicked(View view) {
-		// Is the button now checked?
-		boolean checked = ((RadioButton) view).isChecked();
-
-		// Check which radio button was clicked
-		switch (view.getId()) {
-		case R.id.profile1:
-			if (checked)
-				MainActivity.PROFILE_STATUS = 1;
-			break;
-		case R.id.profile2:
-			if (checked)
-				MainActivity.PROFILE_STATUS = 2;
-			break;
-		case R.id.profile3:
-			if (checked)
-				MainActivity.PROFILE_STATUS = 3;
-			break;
-		}
 
 		Fragment currentFragment = getFragmentManager().findFragmentById(
 				R.id.fragmentsContainer);

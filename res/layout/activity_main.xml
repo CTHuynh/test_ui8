@@ -11,26 +11,11 @@
     tools:context="com.example.test_ui1.MainActivity" >
 
     <LinearLayout
-        android:id="@+id/LinearLayout2"
-        android:layout_width="fill_parent"
-        android:layout_height="120dp"
-        android:orientation="vertical" >
-
-        <ImageView
-            android:id="@+id/imageView1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitStart"
-            android:src="@drawable/pna_banner" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/LinearLayout3"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_gravity="center_vertical"
-        android:layout_weight="20" >
+        android:layout_weight="30" >
 
         <TextView
             android:id="@+id/textView1"
@@ -47,21 +32,33 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/LinearLayout4"
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
-        android:layout_gravity="bottom"
-        android:layout_weight="20"
-        android:orientation="vertical" >
+        android:layout_weight="30" 
+        >
 
-        <Spinner
-            android:id="@+id/profile_spinner"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/LinearLayout4"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:orientation="vertical" 
+            android:layout_alignParentBottom="true" >
 
-    </LinearLayout>
+            <Spinner
+                android:id="@+id/profile_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose_profile" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout5"
@@ -74,14 +71,13 @@
             android:id="@+id/button1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Übernehmen" />
+            android:text="@string/apply" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Profil-Einstellungen" />
-
+            android:text="@string/profile_settings" />
     </LinearLayout>
 
 </LinearLayout>

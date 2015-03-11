@@ -1,114 +1,94 @@
 package com.example.test_ui8;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnItemSelectedListener {
 
 	protected static int PROFILE_STATUS;
 	protected static int PROFILE_COUNTER;
 	protected static int SECURITY_LEVEL = 3;
 	protected static boolean LOGIN_STATUS = false;
+	public static ArrayList<String> PROFILE_LIST;
 
-	public class Profile {
-		
-		private String mName;
-		private int mKey;
-		
-		Profile(int key, String name){
-			mKey=key;
-			mName=name;
-		}
-		public String getName(int key){
-			return mName;
-		}
-		
-	}
+//	@Override
+//	public void onSaveInstanceState(Bundle savedInstanceState) {
+//	    // Save the user's current game state
+//	    savedInstanceState.putInt("profile_status", PROFILE_STATUS);
+//	    savedInstanceState.putInt("profile_counter", PROFILE_COUNTER);
+//	    savedInstanceState.putStringArrayList("profile_list", PROFILE_LIST);
+//	    // Always call the superclass so it can save the view hierarchy state
+//	    super.onSaveInstanceState(savedInstanceState);
+//	}
+//
+//	@Override
+//	protected void onRestoreInstanceState (Bundle savedInstanceState){
+//		super.onRestoreInstanceState(savedInstanceState);
+//	    savedInstanceState.getInt("profile_status");
+//	    savedInstanceState.getInt("profile_counter");
+//	    savedInstanceState.getStringArrayList("profile_list");		
+//	}
+	
+	
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		if (PROFILE_STATUS == 0)
-			PROFILE_STATUS = 1;
+		setContentView(com.example.test_ui8.R.layout.activity_main);
+
+		if (PROFILE_LIST == null) {
+			PROFILE_LIST = new ArrayList<String>();
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.turn_off));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.pna_modus));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
+			Toast.makeText(this, "Profil-Liste neu erstellt",
+					Toast.LENGTH_SHORT).show();		
+		}
 	}
 
-    private void createSpinnerDropDown(int key, String name) {
-    	 
-        //get reference to the spinner from the XML layout
-        Spinner spinner = (Spinner) findViewById(R.id.profile_spinner);
-        
-        //Array list of animals to display in the spinner
-        List<String> list = new ArrayList<String>();
-        list.add("Bear");
-        list.add("Camel");
-        list.add("Cat");
-        list.add("Cat");
-        list.add("Deer");
-        list.add("Dog");
-        list.add("Goat");
-        list.add("Horse");
-        //create an ArrayAdaptar from the String Array
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        //set the view for the Drop down list
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //set the ArrayAdapter to the spinner
-        spinner.setAdapter(dataAdapter);
-        //attach the listener to the spinner
-        spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
-        
-    }
-	
-	
+	private void createNewProfile(int key, String name) {
+
+
+
+
+
+	}
+
 	@Override
 	protected void onResume() {
+		Spinner spinner = (Spinner) findViewById(com.example.test_ui8.R.id.profile_spinner);
+		// create an ArrayAdaptar from the String Array
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				com.example.test_ui8.R.layout.spinner_item, PROFILE_LIST);
+		// set the view for the Drop down list
+		dataAdapter
+				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		// set the ArrayAdapter to the spinner
+		spinner.setAdapter(dataAdapter);
+		// attach the listener to the spinner
+		spinner.setOnItemSelectedListener(this);
 		super.onResume();
-		
-		SharedPreferences settings = PreferenceManager
-				.getDefaultSharedPreferences(this);
-		String securityLevel = settings.getString("SecurityLevel", "3");
-		SECURITY_LEVEL = Integer.valueOf(securityLevel);
-		
-		Intent exitIntent = new Intent(this, MainActivity.class).setFlags(
-				Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(
-				"com.example.test_ui8.EXIT", true);
 
-		switch (PROFILE_STATUS) {
-		case 1:
-			RadioButton button1 = (RadioButton) findViewById(R.id.profile1);
-			button1.setChecked(true);
-			break;
-		case 2:
-			RadioButton button2 = (RadioButton) findViewById(R.id.profile2);
-			button2.setChecked(true);
-			break;
-		case 3:
-			RadioButton button3 = (RadioButton) findViewById(R.id.profile3);
-			button3.setChecked(true);
-			break;
-		}
-		if (SECURITY_LEVEL == 3 && !LOGIN_STATUS) {
-			passwordLogin(exitIntent, exitIntent);
-		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(com.example.test_ui8.R.menu.main, menu);
 		return true;
 	}
 
@@ -122,22 +102,22 @@ public class MainActivity extends Activity {
 		Intent exitIntent = new Intent(this, MainActivity.class).setFlags(
 				Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(
 				"com.example.test_ui8.EXIT", true);
-		
+
 		Intent mainActivityIntent = new Intent(this, MainActivity.class);
-		
+
 		Intent profileSettingsIntent = new Intent(this,
 				ProfileSettingsActivity.class);
 
-		Intent generalSettingsIntent = new Intent(this,				
+		Intent generalSettingsIntent = new Intent(this,
 				GeneralSettingsActivity.class);
-		
+
 		switch (id) {
-		case R.id.sendWorkStatus:
+		case com.example.test_ui8.R.id.sendWorkStatus:
 			sendStatusReport();
 			return (true);
-		case R.id.statusLog:
+		case com.example.test_ui8.R.id.statusLog:
 			return (true);
-		case R.id.generalSettings:
+		case com.example.test_ui8.R.id.generalSettings:
 			if (SECURITY_LEVEL < 1) {
 				startActivity(generalSettingsIntent);
 				return (true);
@@ -147,32 +127,15 @@ public class MainActivity extends Activity {
 			}
 			passwordLogin(generalSettingsIntent, mainActivityIntent);
 			return (true);
-		case R.id.profileSettings:
-			if (SECURITY_LEVEL < 1) {
-				startActivity(profileSettingsIntent);
-				return (true);
-			} else if (LOGIN_STATUS) {
-				startActivity(profileSettingsIntent);
-				return (true);
-			}
-			passwordLogin(profileSettingsIntent, mainActivityIntent);
-			return (true);
-		case R.id.logIn:
-			if (LOGIN_STATUS) {
-				passwordLogout();
-			} else {
-				passwordLogin(exitIntent, exitIntent);
-			}
-			return (true);
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void sendStatusReport(){
+	private void sendStatusReport() {
 		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
 		sendStatus.show(getFragmentManager(), null);
 	}
-	
+
 	private void passwordLogin(Intent intent, Intent exitIntent) {
 		PasswordDialogFragment enterPassword = new PasswordDialogFragment(
 				intent, exitIntent);
@@ -184,35 +147,18 @@ public class MainActivity extends Activity {
 		logout.show(getFragmentManager(), null);
 	}
 
-	public void onRadioButtonClicked(View view) {
+	public void onItemSelected(AdapterView<?> parent, View view, int pos,
+			long id) {
 
-		Intent exitIntent = new Intent(this, MainActivity.class).setFlags(
-				Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(
-				"com.example.test_ui8.EXIT", true);
-		
-		Intent mainActivityIntent = new Intent(this, MainActivity.class);
-		
-		if (SECURITY_LEVEL > 1 && !LOGIN_STATUS) {
-			passwordLogin(mainActivityIntent, exitIntent);
-		} else {
-			// Is the button now checked?
-			boolean checked = ((RadioButton) view).isChecked();
-
-			// Check which radio button was clicked
-			switch (view.getId()) {
-			case R.id.profile1:
-				if (checked)
-					PROFILE_STATUS = 1;
-				break;
-			case R.id.profile2:
-				if (checked)
-					PROFILE_STATUS = 2;
-				break;
-			case R.id.profile3:
-				if (checked)
-					PROFILE_STATUS = 3;
-				break;
-			}
-		}
+		parent.getItemAtPosition(pos);
+		PROFILE_STATUS=pos;
+		Toast.makeText(this, PROFILE_LIST.get(pos)+" wurde gewählt. Key: "+PROFILE_STATUS,
+				Toast.LENGTH_SHORT).show();
 	}
+	
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
+
 }

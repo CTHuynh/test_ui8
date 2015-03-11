@@ -16,9 +16,9 @@
     <string name="log_in">Einloggen</string>
     <string name="log_out">Ausloggen</string>
     <string name="send_status_report">Statusmeldung senden</string>
-    <string name="profile1">Profil 1</string>
-    <string name="profile2">Profil 2</string>
-    <string name="profile3">Profil 3</string>
+    <string name="profile1">Profil 1 (lokal)</string>
+    <string name="profile2">Profil 2 (lokal)</string>
+    <string name="profile3">Profil 3 (lokal)</string>
     <string name="pna_offline">PNA ausgeschaltet</string>
     <string name="erc">Notfallzentrum</string>
     <string name="setup">Einrichten</string>
@@ -130,5 +130,11 @@
     <string name="report_has_been_sent">Statusmeldung wurde verschickt</string>
     <string name="not_available">nicht verfügbar</string>
     <string name="status_report_sent">Statusmeldung wurde gesendet</string>
+    <string name="relockin_pna">Mit anderer ID einloggen</string>
+    <string name="logout_pna">Logout PNA-Modus</string>
+    <string name="apply">Übernehmen</string>
+    <string name="pna_modus">PNA Modus</string>
+    <string name="turn_off">Ausschalten</string>
+    <string name="choose_profile">Wählen Sie einen Arbeitsmodus und drücken Sie \"Übernehmen\" um diesen zu starten.</string>
 
 </resources>
