@@ -1,5 +1,8 @@
 package com.example.test_ui8;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,13 +11,31 @@ import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 
 public class MainActivity extends Activity {
 
 	protected static int PROFILE_STATUS;
+	protected static int PROFILE_COUNTER;
 	protected static int SECURITY_LEVEL = 3;
 	protected static boolean LOGIN_STATUS = false;
+
+	public class Profile {
+		
+		private String mName;
+		private int mKey;
+		
+		Profile(int key, String name){
+			mKey=key;
+			mName=name;
+		}
+		public String getName(int key){
+			return mName;
+		}
+		
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +45,34 @@ public class MainActivity extends Activity {
 			PROFILE_STATUS = 1;
 	}
 
+    private void createSpinnerDropDown(int key, String name) {
+    	 
+        //get reference to the spinner from the XML layout
+        Spinner spinner = (Spinner) findViewById(R.id.profile_spinner);
+        
+        //Array list of animals to display in the spinner
+        List<String> list = new ArrayList<String>();
+        list.add("Bear");
+        list.add("Camel");
+        list.add("Cat");
+        list.add("Cat");
+        list.add("Deer");
+        list.add("Dog");
+        list.add("Goat");
+        list.add("Horse");
+        //create an ArrayAdaptar from the String Array
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        //set the view for the Drop down list
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set the ArrayAdapter to the spinner
+        spinner.setAdapter(dataAdapter);
+        //attach the listener to the spinner
+        spinner.setOnItemSelectedListener(new MyOnItemSelectedListener());
+        
+    }
+	
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
