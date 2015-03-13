@@ -59,6 +59,17 @@
             android:name=".GeneralSettingsActivity"
             android:label="@string/general_settings" >
         </activity>
+                <activity
+            android:name=".PnaLoginActivity"
+            android:label="LOGIN" >
+        </activity>
+                <activity
+            android:name=".TurnOffActivity"
+            android:label="OFF" >
+        </activity>
+        
+        
+        
         <activity
             android:name=".view.Alarm2"
             android:icon="@drawable/ic_alarm_launcher"

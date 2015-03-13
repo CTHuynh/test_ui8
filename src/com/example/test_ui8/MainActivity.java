@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,56 +21,58 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	protected static int PROFILE_COUNTER;
 	protected static int SECURITY_LEVEL = 3;
 	protected static boolean LOGIN_STATUS = false;
-	public static ArrayList<String> PROFILE_LIST;
+	protected static ArrayList<String> PROFILE_LIST;
 
-//	@Override
-//	public void onSaveInstanceState(Bundle savedInstanceState) {
-//	    // Save the user's current game state
-//	    savedInstanceState.putInt("profile_status", PROFILE_STATUS);
-//	    savedInstanceState.putInt("profile_counter", PROFILE_COUNTER);
-//	    savedInstanceState.putStringArrayList("profile_list", PROFILE_LIST);
-//	    // Always call the superclass so it can save the view hierarchy state
-//	    super.onSaveInstanceState(savedInstanceState);
-//	}
-//
-//	@Override
-//	protected void onRestoreInstanceState (Bundle savedInstanceState){
-//		super.onRestoreInstanceState(savedInstanceState);
-//	    savedInstanceState.getInt("profile_status");
-//	    savedInstanceState.getInt("profile_counter");
-//	    savedInstanceState.getStringArrayList("profile_list");		
-//	}
-	
-	
-	
-	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(com.example.test_ui8.R.layout.activity_main);
-
-		if (PROFILE_LIST == null) {
-			PROFILE_LIST = new ArrayList<String>();
-			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.turn_off));
-			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.pna_modus));
-			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
-			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
-			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
-			Toast.makeText(this, "Profil-Liste neu erstellt",
-					Toast.LENGTH_SHORT).show();		
+	protected void onPause() {
+		super.onPause();
+		
+//		save static variables to a sharedPreference
+		SharedPreferences sharedPref = this.getSharedPreferences(
+				"com.presentec.andpna.ui.profile", 0);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putInt("profile_status", PROFILE_STATUS);
+		editor.putInt("profile_counter", PROFILE_COUNTER);
+		int count = PROFILE_LIST.size();
+		editor.putInt("count", count);
+		for (int a = 0; a < count; a++) {
+			editor.putString("profile_name" + a, PROFILE_LIST.get(a));
 		}
-	}
-
-	private void createNewProfile(int key, String name) {
-
-
-
-
-
+		editor.commit();
 	}
 
 	@Override
 	protected void onResume() {
+		super.onResume();
+		
+//		load from sharedPreferences if static data gone.
+		if (PROFILE_LIST==null) {
+			PROFILE_LIST = new ArrayList<String>();
+			SharedPreferences sharedPref = this.getSharedPreferences(
+					"com.presentec.andpna.ui.profile", 0);
+			PROFILE_STATUS = sharedPref.getInt("profile_status", 2);
+			PROFILE_COUNTER = sharedPref.getInt("profile_counter", 4);
+			int count = sharedPref.getInt("count", 0);
+			for (int i = 0; i < count; i++) {
+				PROFILE_LIST
+						.add(sharedPref.getString("profile_name" + i, null));
+			}
+			Toast.makeText(this, "restored from SharedPreference",
+					Toast.LENGTH_SHORT).show();
+		}
+		
+//		init for first start.
+		if (PROFILE_LIST==null) {
+			PROFILE_LIST = new ArrayList<String>();
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.turn_off));
+			PROFILE_LIST
+					.add(getString(com.example.test_ui8.R.string.pna_modus));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
+			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
+			Toast.makeText(this, "Profil-Liste wurde neu erstellt",
+					Toast.LENGTH_SHORT).show();
+		}
 		Spinner spinner = (Spinner) findViewById(com.example.test_ui8.R.id.profile_spinner);
 		// create an ArrayAdaptar from the String Array
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
@@ -79,10 +82,23 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// set the ArrayAdapter to the spinner
 		spinner.setAdapter(dataAdapter);
+		spinner.setSelection(PROFILE_STATUS);
 		// attach the listener to the spinner
 		spinner.setOnItemSelectedListener(this);
-		super.onResume();
 
+	}
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(com.example.test_ui8.R.layout.activity_main);
+	}
+
+	private void createNewProfile(int key, String name) {
+		PROFILE_LIST.add(name);
+		PROFILE_COUNTER++;
+		onPause();
+		onResume();
 	}
 
 	@Override
@@ -151,14 +167,23 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 			long id) {
 
 		parent.getItemAtPosition(pos);
-		PROFILE_STATUS=pos;
-		Toast.makeText(this, PROFILE_LIST.get(pos)+" wurde gewählt. Key: "+PROFILE_STATUS,
-				Toast.LENGTH_SHORT).show();
+		PROFILE_STATUS = pos;
+		
+		if (PROFILE_STATUS==1){
+			onPause();
+			finish();
+			Intent pnaLoginIntent = new Intent(this, PnaLoginActivity.class);
+			startActivity(pnaLoginIntent);
+		} else if(PROFILE_STATUS==0){
+			onPause();
+			finish();
+			Intent turnOffIntent = new Intent(this, TurnOffActivity.class);
+			startActivity(turnOffIntent);
+		}
 	}
-	
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-    }
 
+	public void onNothingSelected(AdapterView<?> parent) {
+		// Another interface callback
+	}
 
 }
