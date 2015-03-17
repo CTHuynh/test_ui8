@@ -171,15 +171,15 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 
 		
 		if (MainActivity.PROFILE_STATUS>1){
-			onPause();
 			finish();
 			Intent mainActivityIntent = new Intent(this, MainActivity.class);
 			startActivity(mainActivityIntent);
+			overridePendingTransition(0, 0);
 		} else if (MainActivity.PROFILE_STATUS==1){
-			onPause();
 			finish();
 			Intent pnaLoginIntent = new Intent(this, PnaLoginActivity.class);
 			startActivity(pnaLoginIntent);
+			overridePendingTransition(0, 0);
 			}
 		}
 

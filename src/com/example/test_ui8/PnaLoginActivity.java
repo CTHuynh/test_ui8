@@ -170,15 +170,15 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 
 		
 		if (MainActivity.PROFILE_STATUS>1){
-			onPause();
 			finish();
 			Intent mainActivityIntent = new Intent(this, MainActivity.class);
 			startActivity(mainActivityIntent);
+			overridePendingTransition(0, 0);
 		} else if (MainActivity.PROFILE_STATUS==0){
-			onPause();
 			finish();
 			Intent turnOffIntent = new Intent(this, TurnOffActivity.class);
 			startActivity(turnOffIntent);
+			overridePendingTransition(0, 0);
 			}
 		}
 

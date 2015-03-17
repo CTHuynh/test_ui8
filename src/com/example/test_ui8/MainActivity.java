@@ -57,12 +57,14 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 				PROFILE_LIST
 						.add(sharedPref.getString("profile_name" + i, null));
 			}
-			Toast.makeText(this, "restored from SharedPreference",
-					Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "restored from SharedPreference",
+//					Toast.LENGTH_SHORT).show();
 		}
 		
 //		init for first start.
-		if (PROFILE_LIST==null) {
+		
+		
+		if (PROFILE_LIST.size()==0) {
 			PROFILE_LIST = new ArrayList<String>();
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.turn_off));
 			PROFILE_LIST
@@ -170,15 +172,15 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 		PROFILE_STATUS = pos;
 		
 		if (PROFILE_STATUS==1){
-			onPause();
 			finish();
 			Intent pnaLoginIntent = new Intent(this, PnaLoginActivity.class);
 			startActivity(pnaLoginIntent);
+			overridePendingTransition(0, 0);
 		} else if(PROFILE_STATUS==0){
-			onPause();
 			finish();
 			Intent turnOffIntent = new Intent(this, TurnOffActivity.class);
 			startActivity(turnOffIntent);
+			overridePendingTransition(0, 0);
 		}
 	}
 
