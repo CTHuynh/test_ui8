@@ -2,39 +2,24 @@ package com.example.test_ui8;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+import android.widget.Toast;
 
 public class MandownGeneralFragment extends PreferenceFragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		switch (MainActivity.PROFILE_STATUS) {
-		case 1:
-			addPreferencesFromResource(R.xml.mandown_general_pref1);
-			break;
-		case 2:
-			addPreferencesFromResource(R.xml.mandown_general_pref2);
-			break;
-		case 3:
-			addPreferencesFromResource(R.xml.mandown_general_pref3);
-			break;
-		}
+		String profileName=MainActivity.PROFILE_LIST.get(MainActivity.PROFILE_STATUS);
+		this.getPreferenceManager().setSharedPreferencesName(profileName);
+		addPreferencesFromResource(R.xml.mandown_general_pref1);
 	}
 
 	@Override
-	public void onStart() {
+	public void onResume() {
+		super.onResume();
+		String profileName=MainActivity.PROFILE_LIST.get(MainActivity.PROFILE_STATUS);
 		getPreferenceScreen().removeAll();
-		switch (MainActivity.PROFILE_STATUS) {
-		case 1:
-			addPreferencesFromResource(R.xml.mandown_general_pref1);
-			break;
-		case 2:
-			addPreferencesFromResource(R.xml.mandown_general_pref2);
-			break;
-		case 3:
-			addPreferencesFromResource(R.xml.mandown_general_pref3);
-			break;
-		}
-		super.onStart();
-	}
+		getPreferenceManager().setSharedPreferencesName(profileName);
+		addPreferencesFromResource(R.xml.mandown_general_pref1);
+	}	
 }

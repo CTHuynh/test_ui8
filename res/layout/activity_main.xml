@@ -68,16 +68,18 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/Button_apply_main"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/apply" />
+            android:text="@string/apply" 
+            android:onClick="applyModus"/>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/Button_local_settings"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/profile_settings" />
+            android:text="@string/profile_settings"
+            android:onClick="startProfileSettings" />
     </LinearLayout>
 
 </LinearLayout>

@@ -60,10 +60,7 @@ public class PasswordDialogFragment extends DialogFragment {
 										"");
 
 								if (input.equals(pw)) {
-									Toast.makeText(getActivity(),
-											R.string.login_successful,
-											Toast.LENGTH_SHORT).show();
-									MainActivity.LOGIN_STATUS = true;
+
 									startActivity(mIntent);
 									if (mIntent.getBooleanExtra(
 											"com.example.test_ui8.EXIT", false)) {

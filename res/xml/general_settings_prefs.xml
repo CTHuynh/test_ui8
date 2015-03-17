@@ -2,14 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <PreferenceCategory android:title="@string/security_settings" >
-        <ListPreference
-            android:dialogTitle="@string/password_required_for"
-            android:entries="@array/listOptionsSecurityLevels"
-            android:entryValues="@array/listValuesSecurityLevels"
-            android:key="SecurityLevel"
+        <CheckBoxPreference
+            android:key="PasswordProtection"
+            android:summary="@string/password_for"
             android:defaultValue="0"
-            android:summary="%s"
-            android:title="@string/security_level" />
+            android:title="@string/password_protection" />
         <EditTextPreference
             android:key="Password"
             android:maxLength="10"

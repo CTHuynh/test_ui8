@@ -68,14 +68,13 @@
         android:orientation="vertical" >
 
         <Button
-            android:id="@id/button1"
+            android:id="@+id/Button_turn_off"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="turnOff"
             android:text="@string/apply" />
 
         <Button
-            android:id="@id/button2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/profile_settings"

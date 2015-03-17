@@ -136,5 +136,7 @@
     <string name="pna_modus">PNA Modus</string>
     <string name="turn_off">Ausschalten</string>
     <string name="choose_profile">Wählen Sie einen Arbeitsmodus und drücken Sie \"Übernehmen\" um diesen zu starten.</string>
+    <string name="password_protection">Passwortschutz</string>
+    <string name="password_for">für lokale Profile und Einstellungen</string>
 
 </resources>
