@@ -14,7 +14,7 @@ public class ERCNumbersFragment extends PreferenceFragment implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		String profileName=MainActivity.PROFILE_LIST.get(MainActivity.PROFILE_STATUS);
-		this.getPreferenceManager().setSharedPreferencesName(profileName);
+		getPreferenceManager().setSharedPreferencesName(profileName);
 		addPreferencesFromResource(R.xml.erc_numbers_pref1);
 	}
 

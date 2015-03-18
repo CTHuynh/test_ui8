@@ -16,7 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnItemSelectedListener {
+import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+
+public class MainActivity extends Activity implements OnItemSelectedListener,
+		OnPasswordCheckListener {
 
 	protected static int PROFILE_STATUS;
 	protected static int PROFILE_COUNTER;
@@ -98,13 +101,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
 	}
 
-	private void createNewProfile(int key, String name) {
-		PROFILE_LIST.add(name);
-		PROFILE_COUNTER++;
-		onPause();
-		onResume();
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -118,8 +114,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-
-		Intent mainActivityIntent = new Intent(this, MainActivity.class);
 
 		Intent generalSettingsIntent = new Intent(this,
 				GeneralSettingsActivity.class);
@@ -135,22 +129,56 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 				startActivity(generalSettingsIntent);
 				return (true);
 			} else {
-				passwordLogin(generalSettingsIntent, mainActivityIntent);
+				passwordLogin(2);
 				return (true);
 			}
+		case com.example.test_ui8.R.id.createProfile:
+			if (!PWP) {
+				createProfile();
+				return (true);
+			} else {
+				passwordLogin(4);
+				return (true);
+			}
+		case com.example.test_ui8.R.id.deleteProfile:
+			if (!PWP) {
+				return (true);
+			} else {
+				passwordLogin(5);
+				return (true);
+			}
+
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void sendStatusReport() {
-		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
-		sendStatus.show(getFragmentManager(), null);
-	}
+	public void onCheckPassword(boolean pw, int key) {
+		if (pw) {
+			switch (key) {
+			case 0: // turn off local profile
 
-	private void passwordLogin(Intent intent, Intent exitIntent) {
-		PasswordDialogFragment enterPassword = new PasswordDialogFragment(
-				intent, exitIntent);
-		enterPassword.show(getFragmentManager(), null);
+				break;
+			case 1: // turn on local profile
+
+				break;
+			case 2: // general settings
+				Intent generalSettingsIntent = new Intent(this,
+						GeneralSettingsActivity.class);
+				startActivity(generalSettingsIntent);
+				break;
+			case 3: // profile settings
+				Intent profileSettingsIntent = new Intent(this,
+						ProfileSettingsActivity.class);
+				startActivity(profileSettingsIntent);
+				break;
+			case 4: // create local profile
+				createProfile();
+				break;
+			case 5: // delete local profile
+
+				break;
+			}
+		}
 	}
 
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
@@ -175,15 +203,33 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	public void onNothingSelected(AdapterView<?> parent) {
 		// Another interface callback
 	}
-	
+
 	public void applyModus(View view) {
-		
-	}
-	
-	public void startProfileSettings(View view) {
-		Intent profileSettingsIntent = new Intent(this,
-				ProfileSettingsActivity.class);
-		startActivity(profileSettingsIntent);
+
 	}
 
+	public void startProfileSettings(View view) {
+
+		Intent profileSettingsIntent = new Intent(this,
+				ProfileSettingsActivity.class);
+		if (!PWP)
+			startActivity(profileSettingsIntent);
+		else
+			passwordLogin(3);
+	}
+
+	private void createProfile() {
+		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
+		createProfile.show(getFragmentManager(), null);
+	}
+	
+	private void sendStatusReport() {
+		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
+		sendStatus.show(getFragmentManager(), null);
+	}
+
+	private void passwordLogin(int key) {
+		PasswordDialogFragment enterPassword = new PasswordDialogFragment(key);
+		enterPassword.show(getFragmentManager(), null);
+	}
 }

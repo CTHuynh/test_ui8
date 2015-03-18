@@ -94,17 +94,6 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 		setContentView(com.example.test_ui8.R.layout.activity_turn_off);
 	}
 
-	public void turnOff(View view) {
-
-	}
-
-	private void createNewProfile(int key, String name) {
-		MainActivity.PROFILE_LIST.add(name);
-		MainActivity.PROFILE_COUNTER++;
-		onPause();
-		onResume();
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -118,15 +107,6 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-
-		Intent exitIntent = new Intent(this, MainActivity.class).setFlags(
-				Intent.FLAG_ACTIVITY_CLEAR_TOP).putExtra(
-				"com.example.test_ui8.EXIT", true);
-
-		Intent mainActivityIntent = new Intent(this, MainActivity.class);
-
-		Intent profileSettingsIntent = new Intent(this,
-				ProfileSettingsActivity.class);
 
 		Intent generalSettingsIntent = new Intent(this,
 				GeneralSettingsActivity.class);
@@ -142,24 +122,58 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 				startActivity(generalSettingsIntent);
 				return (true);
 			} else {
-				passwordLogin(generalSettingsIntent, mainActivityIntent);
+				passwordLogin(2);
+			}
+		case com.example.test_ui8.R.id.createProfile:
+			if (!MainActivity.PWP) {
+				createProfile();
+				return (true);
+			} else {
+				passwordLogin(4);
 				return (true);
 			}
+		case com.example.test_ui8.R.id.deleteProfile:
+			if (!MainActivity.PWP) {
+				return (true);
+			} else {
+				passwordLogin(5);
+				return (true);
+			}
+
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void sendStatusReport() {
-		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
-		sendStatus.show(getFragmentManager(), null);
-	}
 
-	private void passwordLogin(Intent intent, Intent exitIntent) {
-		PasswordDialogFragment enterPassword = new PasswordDialogFragment(
-				intent, exitIntent);
-		enterPassword.show(getFragmentManager(), null);
-	}
 
+	public void onCheckPassword(boolean pw, int key) {
+		if (pw) {
+			switch (key) {
+			case 0: // turn off local profile
+
+				break;
+			case 1: // turn on local profile
+
+				break;
+			case 2: // general settings
+				Intent generalSettingsIntent = new Intent(this,
+						GeneralSettingsActivity.class);
+				startActivity(generalSettingsIntent);
+				break;
+			case 3: // profile settings
+				Intent profileSettingsIntent = new Intent(this,
+						ProfileSettingsActivity.class);
+				startActivity(profileSettingsIntent);
+				break;
+			case 4: // create local profile
+				createProfile();
+				break;
+			case 5: // delete local profile
+
+				break;
+			}
+		}
+	}
 
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
@@ -184,4 +198,24 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 		// Another interface callback
 	}
 
+	private void turnOff(View view) {
+
+	}
+
+	private void sendStatusReport() {
+		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
+		sendStatus.show(getFragmentManager(), null);
+	}
+
+	private void createProfile() {
+		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
+		createProfile.show(getFragmentManager(), null);
+	}
+	
+	private void passwordLogin(int key) {
+		PasswordDialogFragment enterPassword = new PasswordDialogFragment(key);
+		enterPassword.show(getFragmentManager(), null);
+	}
+	
+	
 }

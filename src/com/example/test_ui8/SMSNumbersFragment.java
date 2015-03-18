@@ -41,7 +41,7 @@ public class SMSNumbersFragment extends PreferenceFragment implements
 			Preference pref3 = findPreference("P1SmsHost2");
 			pref3.setSummary(sh.getString("P1SmsHost2", ""));
 			Preference pref4 = findPreference("P1SmsHost3");
-			pref4.setSummary(sh.getString("P1SmsHost", ""));
+			pref4.setSummary(sh.getString("P1SmsHost3", ""));
 			Preference pref5 = findPreference("P1SmsHost4");
 			pref5.setSummary(sh.getString("P1SmsHost4", ""));
 	}

@@ -16,6 +16,7 @@ public class SetupFragment extends PreferenceFragment implements
 		String profileName=MainActivity.PROFILE_LIST.get(MainActivity.PROFILE_STATUS);
 		this.getPreferenceManager().setSharedPreferencesName(profileName);
 		addPreferencesFromResource(R.xml.setup_pref1);
+//		Toast.makeText(getActivity(), "create", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -28,11 +29,12 @@ public class SetupFragment extends PreferenceFragment implements
 		getPreferenceManager().setSharedPreferencesName(profileName);
 		addPreferencesFromResource(R.xml.setup_pref1);
 		setSummaries();
+//		Toast.makeText(getActivity(), "start", Toast.LENGTH_SHORT).show();
 	}
 	
 
 	public void setSummaries() {
-		final SharedPreferences sh = getPreferenceManager()
+		SharedPreferences sh = getPreferenceManager()
 				.getSharedPreferences();
 		Preference pref1 = findPreference("P1SmsHost");
 		pref1.setSummary(sh.getString("P1SmsHost", ""));
@@ -56,5 +58,6 @@ public class SetupFragment extends PreferenceFragment implements
 			pref.setSummary(editTextPref.getText());
 		}
 		setSummaries();
+//		Toast.makeText(getActivity(), "changed", Toast.LENGTH_SHORT).show();
 	}	
 }

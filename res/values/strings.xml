@@ -138,5 +138,8 @@
     <string name="choose_profile">Wählen Sie einen Arbeitsmodus und drücken Sie \"Übernehmen\" um diesen zu starten.</string>
     <string name="password_protection">Passwortschutz</string>
     <string name="password_for">für lokale Profile und Einstellungen</string>
+    <string name="create_profile">lokales Profil erstellen</string>
+    <string name="delete_profile">lokales Profil löschen</string>
+    <string name="profile_name_input">gewünschten Profil-Namen eingeben</string>
 
 </resources>

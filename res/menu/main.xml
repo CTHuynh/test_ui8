@@ -15,6 +15,13 @@
         android:id="@+id/generalSettings"
         android:showAsAction="withText"
         android:title="@string/general_settings"/>
-
+    <item
+        android:id="@+id/createProfile"
+        android:showAsAction="withText"
+        android:title="@string/create_profile"/>
+    <item
+        android:id="@+id/deleteProfile"
+        android:showAsAction="withText"
+        android:title="@string/delete_profile"/>
 
 </menu>
