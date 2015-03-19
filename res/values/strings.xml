@@ -13,8 +13,6 @@
     <string name="general_settings">Allg. Einstellungen</string>
     <string name="profile_settings">Profil-Einstellungen</string>
     <string name="status_log">Status Protokoll</string>
-    <string name="log_in">Einloggen</string>
-    <string name="log_out">Ausloggen</string>
     <string name="send_status_report">Statusmeldung senden</string>
     <string name="profile1">Profil 1 (lokal)</string>
     <string name="profile2">Profil 2 (lokal)</string>
@@ -117,13 +115,9 @@
     <string name="enter_password">Bitte das Passwort eingeben</string>
     <string name="ok">OK</string>
     <string name="cancel">Abbrechen</string>
-    <string name="login_required">Login erforderlich. Bitte Passwort eingeben.</string>
-    <string name="login_successful">Login erfolgreich</string>
     <string name="wrong_pw">falsche Passwort</string>
-    <string name="logout_intent">Sie sind eingeloggt. Möchten Sie sich ausloggen?</string>
     <string name="yes">Ja</string>
     <string name="no">Nein</string>
-    <string name="logged_out">Sie sind ausgeloggt</string>
     <string name="abort_login">Login abgebrochen</string>
     <string name="change_status_report">Status</string>
     <string name="choose_status_report">Welche Statusmeldung soll gesendet werden? </string>
@@ -138,8 +132,10 @@
     <string name="choose_profile">Wählen Sie einen Arbeitsmodus und drücken Sie \"Übernehmen\" um diesen zu starten.</string>
     <string name="password_protection">Passwortschutz</string>
     <string name="password_for">für lokale Profile und Einstellungen</string>
-    <string name="create_profile">lokales Profil erstellen</string>
-    <string name="delete_profile">lokales Profil löschen</string>
-    <string name="profile_name_input">gewünschten Profil-Namen eingeben</string>
+    <string name="create_profile">Lokales Profil erstellen</string>
+    <string name="delete_profile">Lokales Profil löschen</string>
+    <string name="enter_name">Neues Profil erstellen. Name eingeben.</string>
+    <string name="password_required">Passwort erforderlich. Bitte eingeben.</string>
+    <string name="delete">Löschen</string>
 
 </resources>

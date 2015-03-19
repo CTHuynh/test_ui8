@@ -18,8 +18,8 @@ public class ERCFragment extends PreferenceFragment {
 	public void onResume() {
 		super.onResume();
 		String profileName=MainActivity.PROFILE_LIST.get(MainActivity.PROFILE_STATUS);
-		getPreferenceScreen().removeAll();
-		getPreferenceManager().setSharedPreferencesName(profileName);
+		this.getPreferenceScreen().removeAll();
+		this.getPreferenceManager().setSharedPreferencesName(profileName);
 		addPreferencesFromResource(R.xml.erc_pref1);
 	}
 }

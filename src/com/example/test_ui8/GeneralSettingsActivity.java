@@ -8,8 +8,9 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceFragment.OnPreferenceStartFragmentCallback;
 import android.widget.Toast;
 
-public class GeneralSettingsActivity extends Activity implements
-		OnPreferenceStartFragmentCallback {
+public class GeneralSettingsActivity extends Activity {
+	
+//	implements OnPreferenceStartFragmentCallback
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,21 +22,15 @@ public class GeneralSettingsActivity extends Activity implements
 				.commit();
 	}
 
-	public boolean onPreferenceStartFragment(PreferenceFragment caller,
-			Preference pref) {
-		String next_fragment = pref.getFragment();
-
-			getFragmentManager().beginTransaction().addToBackStack(null)
-					.replace(android.R.id.content, new SetupProfilesFragment())
-					.commit();
-			Context context = getApplicationContext();
-			CharSequence text = next_fragment;
-			int duration = Toast.LENGTH_SHORT;
-
-			Toast toast = Toast.makeText(context, text, duration);
-			toast.show();			
-			
-			return (true);
-
-	}
+//	public boolean onPreferenceStartFragment(PreferenceFragment caller,
+//			Preference pref) {
+//		String next_fragment = pref.getFragment();
+//
+//			getFragmentManager().beginTransaction().addToBackStack(null)
+//					.replace(android.R.id.content, new SetupProfilesFragment())
+//					.commit();
+//
+//			return (true);
+//
+//	}
 }

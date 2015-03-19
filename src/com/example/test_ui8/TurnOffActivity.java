@@ -16,7 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class TurnOffActivity extends Activity implements OnItemSelectedListener {
+import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+
+public class TurnOffActivity extends Activity implements OnItemSelectedListener, OnPasswordCheckListener {
 
 	@Override
 	protected void onPause() {
@@ -27,7 +29,6 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 				"com.presentec.andpna.ui.profile", 0);
 		SharedPreferences.Editor editor = sharedPref.edit();
 		editor.putInt("profile_status", MainActivity.PROFILE_STATUS);
-		editor.putInt("profile_counter", MainActivity.PROFILE_COUNTER);
 		int count = MainActivity.PROFILE_LIST.size();
 		editor.putInt("count", count);
 		for (int a = 0; a < count; a++) {
@@ -51,7 +52,6 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 			SharedPreferences sharedPref = this.getSharedPreferences(
 					"com.presentec.andpna.ui.profile", 0);
 			MainActivity.PROFILE_STATUS = sharedPref.getInt("profile_status", 2);
-			MainActivity.PROFILE_COUNTER = sharedPref.getInt("profile_counter", 4);
 			int count = sharedPref.getInt("count", 0);
 			for (int i = 0; i < count; i++) {
 				MainActivity.PROFILE_LIST
@@ -123,6 +123,7 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 				return (true);
 			} else {
 				passwordLogin(2);
+				return (true);
 			}
 		case com.example.test_ui8.R.id.createProfile:
 			if (!MainActivity.PWP) {
@@ -134,12 +135,12 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 			}
 		case com.example.test_ui8.R.id.deleteProfile:
 			if (!MainActivity.PWP) {
+				deleteProfile();
 				return (true);
 			} else {
 				passwordLogin(5);
 				return (true);
 			}
-
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -169,7 +170,7 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 				createProfile();
 				break;
 			case 5: // delete local profile
-
+				deleteProfile();
 				break;
 			}
 		}
@@ -198,7 +199,7 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 		// Another interface callback
 	}
 
-	private void turnOff(View view) {
+	public void turnOff(View view) {
 
 	}
 
@@ -210,6 +211,11 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener 
 	private void createProfile() {
 		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
 		createProfile.show(getFragmentManager(), null);
+	}
+	
+	private void deleteProfile(){
+		DeleteProfileDialogFragment deleteProfile = new DeleteProfileDialogFragment();
+		deleteProfile.show(getFragmentManager(), null);
 	}
 	
 	private void passwordLogin(int key) {

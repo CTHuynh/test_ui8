@@ -46,13 +46,6 @@ public class ProfileSettingsActivity extends Activity implements
 
 	}
 
-	public void onRadioButtonClicked(View view) {
-
-		Fragment currentFragment = getFragmentManager().findFragmentById(
-				R.id.fragmentsContainer);
-		getFragmentManager().beginTransaction().detach(currentFragment)
-				.attach(currentFragment).commit();
-	}
 
 	public boolean onPreferenceStartFragment(PreferenceFragment caller,
 			Preference pref) {
@@ -166,13 +159,23 @@ public class ProfileSettingsActivity extends Activity implements
 		parent.getItemAtPosition(pos);
 		MainActivity.PROFILE_STATUS = pos + 2;
 
-		Fragment currentFragment = this.getFragmentManager().findFragmentById(
+		Fragment currentFragment = getFragmentManager().findFragmentById(
 				R.id.fragmentsContainer);
 		getFragmentManager().beginTransaction().detach(currentFragment)
 				.attach(currentFragment).commit();
 
 	}
 
+//	public void onRadioButtonClicked(View view) {
+//
+//		Fragment currentFragment = getFragmentManager().findFragmentById(
+//				R.id.fragmentsContainer);
+//		getFragmentManager().beginTransaction().detach(currentFragment)
+//				.attach(currentFragment).commit();
+//	}
+	
+	
+	
 	public void onNothingSelected(AdapterView<?> parent) {
 		// Another interface callback
 	}

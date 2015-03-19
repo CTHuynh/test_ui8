@@ -36,7 +36,7 @@ public class PasswordDialogFragment extends DialogFragment {
             mCallback = (OnPasswordCheckListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnHeadlineSelectedListener");
+                    + " must implement OnPasswordCheckListener");
         }
     }
 
@@ -50,7 +50,7 @@ public class PasswordDialogFragment extends DialogFragment {
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		builder.setView(inflater.inflate(R.layout.password_dialog, null));
-		builder.setTitle(R.string.login_required)
+		builder.setTitle(R.string.password_required)
 				.setPositiveButton(R.string.ok,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {

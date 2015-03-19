@@ -23,7 +23,7 @@ public class CreateProfileDialogFragment extends DialogFragment {
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-		builder.setView(inflater.inflate(R.layout.create_profile_dialog, null));
+		builder.setView(inflater.inflate(R.layout.profile_create_dialog, null));
 		builder.setOnKeyListener(new DialogInterface.OnKeyListener() {
 			@Override
 			public boolean onKey(DialogInterface dialog, int keyCode,
@@ -36,7 +36,7 @@ public class CreateProfileDialogFragment extends DialogFragment {
 			}
 		});
 
-		builder.setTitle(R.string.profile_name_input)
+		builder.setTitle(R.string.enter_name)
 				.setPositiveButton(R.string.ok,
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
@@ -45,8 +45,7 @@ public class CreateProfileDialogFragment extends DialogFragment {
 										.findViewById(R.id.profile_name);
 								String input = f.getText().toString();
 
-								MainActivity.PROFILE_LIST.add(input);
-								MainActivity.PROFILE_COUNTER++;										
+								MainActivity.PROFILE_LIST.add(input);									
 							}
 						})
 				.setNegativeButton(R.string.cancel,

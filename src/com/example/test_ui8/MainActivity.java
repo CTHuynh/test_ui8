@@ -22,7 +22,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		OnPasswordCheckListener {
 
 	protected static int PROFILE_STATUS;
-	protected static int PROFILE_COUNTER;
 	protected static boolean PWP = false;
 	protected static ArrayList<String> PROFILE_LIST;
 
@@ -35,7 +34,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 				"com.presentec.andpna.ui.profile", 0);
 		SharedPreferences.Editor editor = sharedPref.edit();
 		editor.putInt("profile_status", PROFILE_STATUS);
-		editor.putInt("profile_counter", PROFILE_COUNTER);
 		int count = PROFILE_LIST.size();
 		editor.putInt("count", count);
 		for (int a = 0; a < count; a++) {
@@ -56,7 +54,6 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			SharedPreferences sharedPref = this.getSharedPreferences(
 					"com.presentec.andpna.ui.profile", 0);
 			PROFILE_STATUS = sharedPref.getInt("profile_status", 2);
-			PROFILE_COUNTER = sharedPref.getInt("profile_counter", 4);
 			int count = sharedPref.getInt("count", 0);
 			for (int i = 0; i < count; i++) {
 				PROFILE_LIST
@@ -74,8 +71,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
-			Toast.makeText(this, "Profil-Liste wurde neu erstellt",
-					Toast.LENGTH_SHORT).show();
+//			Toast.makeText(this, "Profil-Liste wurde neu erstellt",
+//					Toast.LENGTH_SHORT).show();
 		}
 		Spinner spinner = (Spinner) findViewById(com.example.test_ui8.R.id.profile_spinner);
 		// create an ArrayAdaptar from the String Array
@@ -142,6 +139,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			}
 		case com.example.test_ui8.R.id.deleteProfile:
 			if (!PWP) {
+				deleteProfile();
 				return (true);
 			} else {
 				passwordLogin(5);
@@ -175,7 +173,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 				createProfile();
 				break;
 			case 5: // delete local profile
-
+				deleteProfile();
 				break;
 			}
 		}
@@ -221,6 +219,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	private void createProfile() {
 		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
 		createProfile.show(getFragmentManager(), null);
+	}
+	
+	private void deleteProfile(){
+		DeleteProfileDialogFragment deleteProfile = new DeleteProfileDialogFragment();
+		deleteProfile.show(getFragmentManager(), null);
 	}
 	
 	private void sendStatusReport() {

@@ -12,34 +12,34 @@
         </Preference>
 
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1LocationSend"
             android:title="@string/location_reports" />
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1ManualAlarm"
             android:title="@string/alarm_button" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/mandown" >
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1MandownCheckIdle"
             android:title="@string/idle" />
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1MandownCheckTilt"
             android:title="@string/tilt" />
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1MandownCheckImpact"
             android:title="@string/impact" />
         <CheckBoxPreference
-            android:disableDependentsState="false"
+            android:persistent="true"
             android:defaultValue="false"
             android:key="P1MandownCheckFall"
             android:title="@string/fall" />

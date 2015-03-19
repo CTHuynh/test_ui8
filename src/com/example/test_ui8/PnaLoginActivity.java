@@ -16,7 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class PnaLoginActivity extends Activity implements OnItemSelectedListener {
+import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+
+public class PnaLoginActivity extends Activity implements OnItemSelectedListener, OnPasswordCheckListener{
 
 
 	@Override
@@ -28,7 +30,6 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 				"com.presentec.andpna.ui.profile", 0);
 		SharedPreferences.Editor editor = sharedPref.edit();
 		editor.putInt("profile_status", MainActivity.PROFILE_STATUS);
-		editor.putInt("profile_counter", MainActivity.PROFILE_COUNTER);
 		int count = MainActivity.PROFILE_LIST.size();
 		editor.putInt("count", count);
 		for (int a = 0; a < count; a++) {
@@ -51,7 +52,6 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 			SharedPreferences sharedPref = this.getSharedPreferences(
 					"com.presentec.andpna.ui.profile", 0);
 			MainActivity.PROFILE_STATUS = sharedPref.getInt("profile_status", 2);
-			MainActivity.PROFILE_COUNTER = sharedPref.getInt("profile_counter", 4);
 			int count = sharedPref.getInt("count", 0);
 			for (int i = 0; i < count; i++) {
 				MainActivity.PROFILE_LIST
@@ -124,6 +124,7 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 				return (true);
 			} else {
 				passwordLogin(2);
+				return (true);
 			}
 		case com.example.test_ui8.R.id.createProfile:
 			if (!MainActivity.PWP) {
@@ -135,12 +136,12 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 			}
 		case com.example.test_ui8.R.id.deleteProfile:
 			if (!MainActivity.PWP) {
+				deleteProfile();
 				return (true);
 			} else {
 				passwordLogin(5);
 				return (true);
 			}
-
 		}
 		return super.onOptionsItemSelected(item);
 	}
@@ -168,7 +169,7 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 				createProfile();
 				break;
 			case 5: // delete local profile
-
+				deleteProfile();
 				break;
 			}
 		}
@@ -208,12 +209,17 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		enterPassword.show(getFragmentManager(), null);
 	}
 		
-	private void pnaLogin(){
+	public void pnaLogin(View view){
 		
 	}
 
 	private void createProfile() {
 		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
 		createProfile.show(getFragmentManager(), null);
+	}
+	
+	private void deleteProfile(){
+		DeleteProfileDialogFragment deleteProfile = new DeleteProfileDialogFragment();
+		deleteProfile.show(getFragmentManager(), null);
 	}
 }
