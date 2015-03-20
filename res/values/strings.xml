@@ -134,7 +134,7 @@
     <string name="password_for">für lokale Profile und Einstellungen</string>
     <string name="create_profile">Lokales Profil erstellen</string>
     <string name="delete_profile">Lokales Profil löschen</string>
-    <string name="enter_name">Neues Profil erstellen. Name eingeben.</string>
+    <string name="enter_name">Lokales Profil erstellen. Name eingeben.</string>
     <string name="password_required">Passwort erforderlich. Bitte eingeben.</string>
     <string name="delete">Löschen</string>
 
