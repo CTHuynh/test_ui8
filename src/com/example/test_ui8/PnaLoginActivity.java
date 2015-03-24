@@ -17,15 +17,19 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+import com.presentec.andpna.control.Config;
+import com.presentec.andpna.control.Env;
+import com.presentec.andpna.view.LoginActivity;
+import com.presentec.andpna.view.LogoutActivity;
 
-public class PnaLoginActivity extends Activity implements OnItemSelectedListener, OnPasswordCheckListener{
-
+public class PnaLoginActivity extends Activity implements
+		OnItemSelectedListener, OnPasswordCheckListener {
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		
-//		save static variables to a sharedPreference
+
+		// save static variables to a sharedPreference
 		SharedPreferences sharedPref = this.getSharedPreferences(
 				"com.presentec.andpna.ui.profile", 0);
 		SharedPreferences.Editor editor = sharedPref.edit();
@@ -33,7 +37,8 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		int count = MainActivity.PROFILE_LIST.size();
 		editor.putInt("count", count);
 		for (int a = 0; a < count; a++) {
-			editor.putString("profile_name" + a, MainActivity.PROFILE_LIST.get(a));
+			editor.putString("profile_name" + a,
+					MainActivity.PROFILE_LIST.get(a));
 		}
 		editor.commit();
 	}
@@ -41,21 +46,22 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 	@Override
 	protected void onResume() {
 		super.onResume();
-		
+
 		SharedPreferences generalPref = PreferenceManager
 				.getDefaultSharedPreferences(this);
 		MainActivity.PWP = generalPref.getBoolean("PasswordProtection", false);
-		
+
 		// load from sharedPreferences if static data gone.
 		if (MainActivity.PROFILE_LIST == null) {
 			MainActivity.PROFILE_LIST = new ArrayList<String>();
 			SharedPreferences sharedPref = this.getSharedPreferences(
 					"com.presentec.andpna.ui.profile", 0);
-			MainActivity.PROFILE_STATUS = sharedPref.getInt("profile_status", 2);
+			MainActivity.PROFILE_STATUS = sharedPref
+					.getInt("profile_status", 2);
 			int count = sharedPref.getInt("count", 0);
 			for (int i = 0; i < count; i++) {
-				MainActivity.PROFILE_LIST
-						.add(sharedPref.getString("profile_name" + i, null));
+				MainActivity.PROFILE_LIST.add(sharedPref.getString(
+						"profile_name" + i, null));
 			}
 			// Toast.makeText(this, "restored from SharedPreference",
 			// Toast.LENGTH_SHORT).show();
@@ -64,19 +70,24 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		// init for first start.
 		if (MainActivity.PROFILE_LIST.size() == 0) {
 			MainActivity.PROFILE_LIST = new ArrayList<String>();
-			MainActivity.PROFILE_LIST.add(getString(com.example.test_ui8.R.string.turn_off));
+			MainActivity.PROFILE_LIST
+					.add(getString(com.example.test_ui8.R.string.turn_off));
 			MainActivity.PROFILE_LIST
 					.add(getString(com.example.test_ui8.R.string.pna_modus));
-			MainActivity.PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
-			MainActivity.PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
-			MainActivity.PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
+			MainActivity.PROFILE_LIST
+					.add(getString(com.example.test_ui8.R.string.profile1));
+			MainActivity.PROFILE_LIST
+					.add(getString(com.example.test_ui8.R.string.profile2));
+			MainActivity.PROFILE_LIST
+					.add(getString(com.example.test_ui8.R.string.profile3));
 			Toast.makeText(this, "Profil-Liste wurde neu erstellt",
 					Toast.LENGTH_SHORT).show();
 		}
 		Spinner spinner = (Spinner) findViewById(com.example.test_ui8.R.id.profile_spinner);
 		// create an ArrayAdaptar from the String Array
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				com.example.test_ui8.R.layout.spinner_item, MainActivity.PROFILE_LIST);
+				com.example.test_ui8.R.layout.spinner_item,
+				MainActivity.PROFILE_LIST);
 		// set the view for the Drop down list
 		dataAdapter
 				.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -93,7 +104,6 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		super.onCreate(savedInstanceState);
 		setContentView(com.example.test_ui8.R.layout.activity_pna_login);
 	}
-	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -181,24 +191,23 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		parent.getItemAtPosition(pos);
 		MainActivity.PROFILE_STATUS = pos;
 
-		
-		if (MainActivity.PROFILE_STATUS>1){
+		if (MainActivity.PROFILE_STATUS > 1) {
 			finish();
 			Intent mainActivityIntent = new Intent(this, MainActivity.class);
 			startActivity(mainActivityIntent);
 			overridePendingTransition(0, 0);
-		} else if (MainActivity.PROFILE_STATUS==0){
+		} else if (MainActivity.PROFILE_STATUS == 0) {
 			finish();
 			Intent turnOffIntent = new Intent(this, TurnOffActivity.class);
 			startActivity(turnOffIntent);
 			overridePendingTransition(0, 0);
-			}
 		}
+	}
 
 	public void onNothingSelected(AdapterView<?> parent) {
 		// Another interface callback
 	}
-	
+
 	private void sendStatusReport() {
 		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
 		sendStatus.show(getFragmentManager(), null);
@@ -208,18 +217,43 @@ public class PnaLoginActivity extends Activity implements OnItemSelectedListener
 		PasswordDialogFragment enterPassword = new PasswordDialogFragment(key);
 		enterPassword.show(getFragmentManager(), null);
 	}
-		
-	public void pnaLogin(View view){
-		
+
+	public void pnaLogin(View view) {
+
+		Intent i = new Intent(getApplicationContext(),
+				getLoneWorkerMode() == 0 ? LoginActivity.class : LogoutActivity.class);
+		startActivity(i);
+		finish();
+
 	}
 
 	private void createProfile() {
 		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
 		createProfile.show(getFragmentManager(), null);
 	}
-	
-	private void deleteProfile(){
+
+	private void deleteProfile() {
 		DeleteProfileDialogFragment deleteProfile = new DeleteProfileDialogFragment();
 		deleteProfile.show(getFragmentManager(), null);
+	}
+
+	// private Intent intent;
+	private int getLoneWorkerMode() {
+		int mode = Config.getConfig("LoneWorkerMode", Env.getEnv()
+				.getLoneWorkerMode());
+		if (mode < 0)
+			mode = 0;
+		if (mode > 3)
+			mode = Config.getConfig("LoneWorkerLastMode", 0);
+		return mode;
+	}
+
+	private boolean checkEmergencyKeyCheckRunning() {
+		if (Env.getEnv().getEmergencyKeyIntent() != null) { // do nothing during
+															// emergency test
+			finish();
+			return true;
+		}
+		return false;
 	}
 }

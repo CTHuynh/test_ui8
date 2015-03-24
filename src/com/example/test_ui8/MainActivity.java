@@ -14,8 +14,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+import com.presentec.andpna.control.Config;
+import com.presentec.andpna.control.Env;
+import com.presentec.andpna.service.PNAService;
+import com.presentec.andpna.view.LogActivity;
+import com.presentec.andpna.view.login.Login4of5;
 
 public class MainActivity extends Activity implements OnItemSelectedListener,
 		OnPasswordCheckListener {
@@ -70,8 +76,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile1));
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile2));
 			PROFILE_LIST.add(getString(com.example.test_ui8.R.string.profile3));
-//			Toast.makeText(this, "Profil-Liste wurde neu erstellt",
-//					Toast.LENGTH_SHORT).show();
+			// Toast.makeText(this, "Profil-Liste wurde neu erstellt",
+			// Toast.LENGTH_SHORT).show();
 		}
 		Spinner spinner = (Spinner) findViewById(com.example.test_ui8.R.id.profile_spinner);
 		// create an ArrayAdaptar from the String Array
@@ -94,6 +100,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		setContentView(com.example.test_ui8.R.layout.activity_main);
 		SharedPreferences sharedPref = this.getPreferences(MODE_PRIVATE);
 		PWP = sharedPref.getBoolean("password_protection", false);
+
+		Config.createInstance(getApplicationContext());
+
+		PNAService.actionStart(this); // make sure the service is running
+		
+		if (checkEmergencyKeyCheckRunning()) return;
 
 	}
 
@@ -119,6 +131,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			sendStatusReport();
 			return (true);
 		case com.example.test_ui8.R.id.statusLog:
+			Intent i = new Intent(getApplicationContext(), com.presentec.andpna.view.LogActivity.class);
+			startActivity(i);
 			return (true);
 		case com.example.test_ui8.R.id.generalSettings:
 			if (!PWP) {
@@ -202,7 +216,26 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	}
 
 	public void applyModus(View view) {
+		String pref_file_name=PROFILE_LIST.get(PROFILE_STATUS);
 
+//		"com.example.test_ui8."+
+		
+		SharedPreferences sharedpreferences = getSharedPreferences(pref_file_name, 0);	
+		SharedPreferences general_preferences = this.getSharedPreferences("com.presentec.andpna.general_settings", 0);
+		//test
+		String test_string = general_preferences.getString("SMSCode", "not found");
+		Toast.makeText(this, test_string, Toast.LENGTH_SHORT).show();
+
+		
+		PNAService.actionSetup(getApplicationContext(), "//BREW:0114031A:?FWR_01/01_PresentecPNAWatchdog.apk_http://tracklink.de/PresentecPNA/");
+
+		if (!Login4of5.isCellLocationAvailable(this) || !Login4of5.isGpsAvailable(this)) {
+			Toast.makeText(this, "Bitte GPS und Cell-Ortung einschalten!", Toast.LENGTH_LONG).show();
+			startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+			finish();
+			return;
+		}
+		PNAService.actionMode(this, 1);
 	}
 
 	public void startProfileSettings(View view) {
@@ -219,12 +252,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		CreateProfileDialogFragment createProfile = new CreateProfileDialogFragment();
 		createProfile.show(getFragmentManager(), null);
 	}
-	
-	private void deleteProfile(){
+
+	private void deleteProfile() {
 		DeleteProfileDialogFragment deleteProfile = new DeleteProfileDialogFragment();
 		deleteProfile.show(getFragmentManager(), null);
 	}
-	
+
 	private void sendStatusReport() {
 		SendStatusDialogFragment sendStatus = new SendStatusDialogFragment();
 		sendStatus.show(getFragmentManager(), null);
@@ -233,5 +266,25 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	private void passwordLogin(int key) {
 		PasswordDialogFragment enterPassword = new PasswordDialogFragment(key);
 		enterPassword.show(getFragmentManager(), null);
+	}
+
+	// private Intent intent;
+	private int getLoneWorkerMode() {
+		int mode = Config.getConfig("LoneWorkerMode", Env.getEnv()
+				.getLoneWorkerMode());
+		if (mode < 0)
+			mode = 0;
+		if (mode > 3)
+			mode = Config.getConfig("LoneWorkerLastMode", 0);
+		return mode;
+	}
+
+	private boolean checkEmergencyKeyCheckRunning() {
+		if (Env.getEnv().getEmergencyKeyIntent() != null) { // do nothing during
+															// emergency test
+			finish();
+			return true;
+		}
+		return false;
 	}
 }

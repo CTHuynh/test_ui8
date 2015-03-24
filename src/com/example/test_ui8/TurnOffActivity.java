@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.test_ui8.PasswordDialogFragment.OnPasswordCheckListener;
+import com.presentec.andpna.service.PNAService;
 
 public class TurnOffActivity extends Activity implements OnItemSelectedListener, OnPasswordCheckListener {
 
@@ -200,7 +201,7 @@ public class TurnOffActivity extends Activity implements OnItemSelectedListener,
 	}
 
 	public void turnOff(View view) {
-
+		com.presentec.andpna.service.PNAService.actionMode(this, 0);
 	}
 
 	private void sendStatusReport() {

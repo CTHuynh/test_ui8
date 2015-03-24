@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="19" />
+        android:minSdkVersion="11"
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
@@ -59,17 +59,31 @@
             android:name=".GeneralSettingsActivity"
             android:label="@string/general_settings" >
         </activity>
-                <activity
+        <activity
             android:name=".PnaLoginActivity"
             android:label="LOGIN" >
         </activity>
-                <activity
+        <activity
             android:name=".TurnOffActivity"
             android:label="OFF" >
         </activity>
-        
-        
-        
+
+        <service
+            android:name="com.presentec.andpna.service.PNAService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.presentec.pna.PNA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.presentec.andpna.view.LogActivity"
+            android:label="@string/title_activity_log"
+            android:launchMode="singleTask" >
+        </activity>
         <activity
             android:name=".view.Alarm2"
             android:icon="@drawable/ic_alarm_launcher"
@@ -80,7 +94,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!-- <category android:name="android.intent.category.HOME" /> -->
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -92,17 +105,6 @@
         <activity
             android:name=".view.License"
             android:label="@string/title_activity_license" />
-
-        <service
-            android:name=".service.PNAService"
-            android:enabled="true"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="com.presentec.pna.PNA" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
 
         <receiver android:name=".service.SMSReceiver" >
             <intent-filter android:priority="100000" >
@@ -136,15 +138,6 @@
             <intent-filter android:priority="100000" >
                 <action android:name="com.BrighterWirelessMain.Main.SOSPwr" />
             </intent-filter>
-            <!-- <intent-filter android:priority="2147483647"> -->
-            <!-- <action android:name="android.intent.action.MEDIA_BUTTON" /> -->
-            <!-- </intent-filter> -->
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.CAMERA_BUTTON" /> -->
-            <!-- </intent-filter> -->
-
-
-            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
         </receiver>
         <receiver
             android:name=".service.BootCompletedReceiver"
@@ -189,11 +182,6 @@
         <activity
             android:name=".view.AndPTrack"
             android:label="@string/title_activity_and_ptrack" >
-        </activity>
-        <activity
-            android:name=".view.LogActivity"
-            android:label="@string/title_activity_log"
-            android:launchMode="singleTask" >
         </activity>
     </application>
 
